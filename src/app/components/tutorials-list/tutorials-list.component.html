@@ -1,0 +1,49 @@
+<div class="list row">
+  <div class="col-md-6">
+    
+    <div class="form-group">
+      <label for="description">Filtrar por Carrera </label>
+      <select
+        class="form-control"
+        id="programaInteres"
+        required
+        [(ngModel)]="programaInteres"
+        name="programaInteres"
+        (change)="retrieveTutorialsByProgram()"
+      >
+      <option value="lae">Lic. en Administracion de Empresas</option>
+      <option value="conta">Lic. en Contaduria</option>
+      <option value="gestion">Gestion y direccion de negocios</option>
+      <option value="isw">Ing. de software</option>
+      <option value="ltio">Lic. Tecnologias de la Informacion en las Org.</option>
+      <option value="cspol">Lic. en Ciencias Politicas y Gestion Publica</option>
+      
+      </select>
+    </div>
+
+    <h3>{{n}} estudiantes </h3>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let tutorial of tutorials; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveTutorial(tutorial, i)"
+      >
+       {{i+1}}  {{tutorial.appPaterno}}-{{tutorial.appMaterno}}, {{tutorial.nombre}}
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="currentTutorial">
+      <app-tutorial-details
+        (refreshList)="refreshList()"
+        [tutorial]="currentTutorial"
+      ></app-tutorial-details>
+    </div>
+
+    <div *ngIf="!currentTutorial">
+      <br />
+      <p>Seleccione un estudiante ...</p>
+    </div>
+  </div>
+</div>

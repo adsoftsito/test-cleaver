@@ -1,0 +1,159 @@
+<div class="submit-form">
+  <div *ngIf="!submitted">
+    <div class="form-group">
+      <label for="title">Apellido Paterno</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        required
+        [(ngModel)]="tutorial.appPaterno"
+        name="title"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Apellido Materno</label>
+      <input
+        class="form-control"
+        id="description"
+        required
+        [(ngModel)]="tutorial.appMaterno"
+        name="description"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Nombre completo</label>
+      <input
+        class="form-control"
+        id="description"
+        required
+        [(ngModel)]="tutorial.nombre"
+        name="description"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Carrera de interes</label>
+      <select
+        class="form-control"
+        id="programaInteres"
+        required
+        [(ngModel)]="tutorial.programaInteres"
+        name="programaInteres"
+      >
+      <option value="lae">Lic. en Administracion de Empresas</option>
+      <option value="conta">Lic. en Contaduria</option>
+      <option value="gestion">Gestion y direccion de negocios</option>
+      <option value="isw">Ing. de software</option>
+      <option value="ltio">Lic. Tecnologias de la Informacion en las Org.</option>
+      <option value="cspol">Lic. en Ciencias Politicas y Gestion Publica</option>
+      <option value="other">Otro, especifique ... </option>
+      
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Otra carrera no listada </label>
+      <input
+        class="form-control"
+        id="otroPrograma"
+      
+        [(ngModel)]="tutorial.otroPrograma"
+        name="otroPrograma"
+      />
+    </div>
+
+
+    <div class="form-group">
+      <label for="description">Bachillerato de procedencia</label>
+      <select
+        class="form-control"
+        id="bachilleratoProcedencia"
+        required
+        [(ngModel)]="tutorial.bachilleratoProcedencia"
+        name="bachilleratoProcedencia"
+      >
+      <option value="cobaev06">Colegio Bachilleres 06 de Nogales</option>
+      <option value="cobaevmaltrata">Colegio Bachilleres Maltrata</option>
+      <option value="cobaevcordoba">Colegio Bachilleres Cordoba</option>
+      <option value="cetisrioblanco">Cetis de Rio Blanco</option>
+      <option value="conaleporizaba">Conalep Orizaba</option>
+      <option value="cbtisixtac">CBTIS Ixtac</option>
+      <option value="cbtisfortin">CETIS fortin</option>
+      <option value="cbtiscordoba">CBTIS Cordoba</option>
+      <option value="cbtischicola">CBTIS Chicola</option>
+      <option value="esbo">ESBO Orizaba</option>
+      <option value="colmexorizaba">Colegio Mexico Orizaba</option>
+      <option value="esbao">ESBAO Cordoba</option>
+      <option value="prepaunivo">Univo preparatoria</option>
+      <option value="angloorizaba">Colegio Anglo Frances Orizaba</option>
+      <option value="oxford">Colegio Oxford Cordoba</option>
+      <option value="ceico">CEICO Orizaba</option>
+      <option value="cpo">CPO Orizaba</option>
+      <option value="guillaumin">GUILLAUMIN preparatoria</option>
+      <option value="hispanoorizaba">Hispano Orizaba</option>
+      <option value="hispanocordoba">Hispano Cordoba</option>
+      <option value="eba">Escuela de Bachilleres America Cd Mendoza</option>
+      <option value="other">Otro bachillerato, especifique ... </option>
+      
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Otra bachillerato no listado </label>
+      <input
+        class="form-control"
+        id="otroBachillerato"
+      
+        [(ngModel)]="tutorial.otroBachillerato"
+        name="otroBachillerato"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Telefono</label>
+      <input
+        class="form-control"
+        id="telefono"
+        required
+        [(ngModel)]="tutorial.telefono"
+        name="telefono"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="description">e-mail</label>
+      <input
+        class="form-control"
+        id="email"
+        required
+        [(ngModel)]="tutorial.email"
+        name="email"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Facebook/Instagram</label>
+      <input
+        class="form-control"
+        id="facebook"
+        required
+        [(ngModel)]="tutorial.facebook"
+        name="facebook"
+      />
+    </div>
+
+    <button (click)="saveTutorial()" class="btn btn-success">Registrarme</button>
+  </div>
+
+  <div *ngIf="submitted">
+    <h4>Te has registro exitosamente!</h4>
+    <h3>Felicidades!</h3>
+
+    <!--
+    <button class="btn btn-success" (click)="newTutorial()">Add</button>
+    -->
+  </div>
+</div>
