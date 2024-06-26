@@ -498,4 +498,319 @@ export class AddTutorialComponent {
     return 1;
   }
 
+  setM13(value: Number): Number {
+
+    
+    this.tutorial.cautelosoM = 0;
+    this.tutorial.determinadoM =0;
+    this.tutorial.convincenteM =0;
+    this.tutorial.bonachonM =0;
+
+    if  (value==0) 
+      this.tutorial.cautelosoM = 1;
+    if  (value==1) 
+      this.tutorial.determinadoM = 1;
+    if  (value==2) 
+      this.tutorial.convincenteM = 1;
+    if  (value==3) 
+      this.tutorial.bonachonM = 1;
+
+    return 1;
+  }
+
+
+  setL13(value: Number): Number {
+
+    
+    this.tutorial.cautelosoL = 0;
+    this.tutorial.determinadoL =0;
+    this.tutorial.convincenteL =0;
+    this.tutorial.bonachonL =0;
+
+    if  (value==0) 
+      this.tutorial.cautelosoL = 1;
+    if  (value==1) 
+      this.tutorial.determinadoL = 1;
+    if  (value==2) 
+      this.tutorial.convincenteL = 1;
+    if  (value==3) 
+      this.tutorial.bonachonL = 1;
+
+    return 1;
+  }
+
+
+  setM14(value: Number): Number {
+
+    
+    this.tutorial.disciplinadoM = 0;
+    this.tutorial.generosoM =0;
+    this.tutorial.ani_mosoM =0;
+    this.tutorial.persistenteM =0;
+
+    if  (value==0) 
+      this.tutorial.disciplinadoM = 1;
+    if  (value==1) 
+      this.tutorial.generosoM = 1;
+    if  (value==2) 
+      this.tutorial.ani_mosoM = 1;
+    if  (value==3) 
+      this.tutorial.persistenteM = 1;
+
+    return 1;
+  }
+
+  setL14(value: Number): Number {
+
+    
+    this.tutorial.disciplinadoL = 0;
+    this.tutorial.generosoL =0;
+    this.tutorial.ani_mosoL =0;
+    this.tutorial.persistenteL =0;
+
+    if  (value==0) 
+      this.tutorial.disciplinadoL = 1;
+    if  (value==1) 
+      this.tutorial.generosoL = 1;
+    if  (value==2) 
+      this.tutorial.ani_mosoL = 1;
+    if  (value==3) 
+      this.tutorial.persistenteL = 1;
+
+    return 1;
+  }
+
+  setM15(value: Number): Number {
+
+    this.tutorial.adaptableM = 0;
+    this.tutorial.disputadorM =0;
+    this.tutorial.indiferenteM =0;
+    this.tutorial.sangrelivianaM =0;
+
+    if  (value==0) 
+      this.tutorial.adaptableM = 1;
+    if  (value==1) 
+      this.tutorial.disputadorM = 1;
+    if  (value==2) 
+      this.tutorial.indiferenteM = 1;
+    if  (value==3) 
+      this.tutorial.sangrelivianaM = 1;
+
+    return 1;
+  }
+
+  setL15(value: Number): Number {
+
+    this.tutorial.adaptableL = 0;
+    this.tutorial.disputadorL =0;
+    this.tutorial.indiferenteL =0;
+    this.tutorial.sangrelivianaL =0;
+
+    if  (value==0) 
+      this.tutorial.adaptableL = 1;
+    if  (value==1) 
+      this.tutorial.disputadorL = 1;
+    if  (value==2) 
+      this.tutorial.indiferenteL = 1;
+    if  (value==3) 
+      this.tutorial.sangrelivianaL = 1;
+
+    return 1;
+  }
+
+  setM16(value: Number): Number {
+
+  
+    this.tutorial.cohibidoM = 0;
+    this.tutorial.exactoM =0;
+    this.tutorial.francoM =0;
+    this.tutorial.buencompaneroM =0;
+
+    if  (value==0) 
+      this.tutorial.cohibidoM = 1;
+    if  (value==1) 
+      this.tutorial.exactoM = 1;
+    if  (value==2) 
+      this.tutorial.francoM = 1;
+    if  (value==3) 
+      this.tutorial.buencompaneroM = 1;
+
+    return 1;
+  }
+
+  setL16(value: Number): Number {
+
+  
+    this.tutorial.cohibidoL = 0;
+    this.tutorial.exactoL =0;
+    this.tutorial.francoL =0;
+    this.tutorial.buencompaneroL =0;
+
+    if  (value==0) 
+      this.tutorial.cohibidoL = 1;
+    if  (value==1) 
+      this.tutorial.exactoL = 1;
+    if  (value==2) 
+      this.tutorial.francoL = 1;
+    if  (value==3) 
+      this.tutorial.buencompaneroL = 1;
+
+    return 1;
+  }
+
+  setM17(value: Number): Number {
+
+    this.tutorial.docilM = 0;
+    this.tutorial.atrevidoM =0;
+    this.tutorial.lealM =0;
+    this.tutorial.encantadorM =0;
+
+    if  (value==0) 
+      this.tutorial.docilM = 1;
+    if  (value==1) 
+      this.tutorial.atrevidoM = 1;
+    if  (value==2) 
+      this.tutorial.lealM = 1;
+    if  (value==3) 
+      this.tutorial.encantadorM = 1;
+
+    return 1;
+  }
+
+  setL17(value: Number): Number {
+
+    this.tutorial.docilL = 0;
+    this.tutorial.atrevidoL =0;
+    this.tutorial.lealL =0;
+    this.tutorial.encantadorL =0;
+
+    if  (value==0) 
+      this.tutorial.docilL = 1;
+    if  (value==1) 
+      this.tutorial.atrevidoL = 1;
+    if  (value==2) 
+      this.tutorial.lealL = 1;
+    if  (value==3) 
+      this.tutorial.encantadorL = 1;
+
+    return 1;
+  }
+
+  setM18(value: Number): Number {
+
+    this.tutorial.competitivoM = 0;
+    this.tutorial.alegreM =0;
+    this.tutorial.consideradoM =0;
+    this.tutorial.armoniosoM =0;
+
+    if  (value==0) 
+      this.tutorial.competitivoM = 1;
+    if  (value==1) 
+      this.tutorial.alegreM = 1;
+    if  (value==2) 
+      this.tutorial.consideradoM = 1;
+    if  (value==3) 
+      this.tutorial.armoniosoM = 1;
+
+    return 1;
+  }
+
+
+  setL18(value: Number): Number {
+
+    this.tutorial.competitivoL = 0;
+    this.tutorial.alegreL =0;
+    this.tutorial.consideradoL =0;
+    this.tutorial.armoniosoL =0;
+
+    if  (value==0) 
+      this.tutorial.competitivoL = 1;
+    if  (value==1) 
+      this.tutorial.alegreL = 1;
+    if  (value==2) 
+      this.tutorial.consideradoL = 1;
+    if  (value==3) 
+      this.tutorial.armoniosoL = 1;
+
+    return 1;
+  }
+
+  setM19(value: Number): Number {
+  
+    this.tutorial.amigueroM = 0;
+    this.tutorial.pacienteM =0;
+    this.tutorial.confianzamismoM =0;
+    this.tutorial.mesuradohablarM =0;
+
+    if  (value==0) 
+      this.tutorial.amigueroM = 1;
+    if  (value==1) 
+      this.tutorial.pacienteM = 1;
+    if  (value==2) 
+      this.tutorial.confianzamismoM = 1;
+    if  (value==3) 
+      this.tutorial.mesuradohablarM = 1;
+
+    return 1;
+  }
+
+  setL19(value: Number): Number {
+  
+    this.tutorial.amigueroL = 0;
+    this.tutorial.pacienteL =0;
+    this.tutorial.confianzamismoL =0;
+    this.tutorial.mesuradohablarL =0;
+
+    if  (value==0) 
+      this.tutorial.amigueroL = 1;
+    if  (value==1) 
+      this.tutorial.pacienteL = 1;
+    if  (value==2) 
+      this.tutorial.confianzamismoL = 1;
+    if  (value==3) 
+      this.tutorial.mesuradohablarL = 1;
+
+    return 1;
+  }
+
+  setM20(value: Number): Number {
+  
+  
+    this.tutorial.diplomaticoM = 0;
+    this.tutorial.audazM =0;
+    this.tutorial.refinadoM =0;
+    this.tutorial.satisfechoM =0;
+
+    if  (value==0) 
+      this.tutorial.diplomaticoM = 1;
+    if  (value==1) 
+      this.tutorial.audazM = 1;
+    if  (value==2) 
+      this.tutorial.refinadoM = 1;
+    if  (value==3) 
+      this.tutorial.satisfechoM = 1;
+
+    return 1;
+  }
+
+  setL20(value: Number): Number {
+  
+  
+    this.tutorial.diplomaticoL = 0;
+    this.tutorial.audazL =0;
+    this.tutorial.refinadoL =0;
+    this.tutorial.satisfechoL =0;
+
+    if  (value==0) 
+      this.tutorial.diplomaticoL = 1;
+    if  (value==1) 
+      this.tutorial.audazL = 1;
+    if  (value==2) 
+      this.tutorial.refinadoL = 1;
+    if  (value==3) 
+      this.tutorial.satisfechoL = 1;
+
+    return 1;
+  }
+
 }
