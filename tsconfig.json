@@ -2,6 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "ignoreDeprecations": "5.0",
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
@@ -23,7 +24,8 @@
       "ES2022",
       "dom"
     ],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "suppressImplicitAnyIndexErrors": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

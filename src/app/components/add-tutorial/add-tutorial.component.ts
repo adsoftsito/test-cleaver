@@ -14,10 +14,13 @@ export class AddTutorialComponent {
   constructor(private tutorialService: TutorialService) { }
 
   saveTutorial(): void {
+    console.log(this.tutorial);
+    /*
     this.tutorialService.create(this.tutorial).then(() => {
       console.log('Created new item successfully!');
       this.submitted = true;
     });
+    */
   }
 
   newTutorial(): void {
@@ -809,6 +812,164 @@ export class AddTutorialComponent {
       this.tutorial.refinadoL = 1;
     if  (value==3) 
       this.tutorial.satisfechoL = 1;
+
+    return 1;
+  }
+
+  setM21(value: Number): Number {
+  
+
+    this.tutorial.dispuestoM = 0;
+    this.tutorial.deseosoM =0;
+    this.tutorial.consecuenteM =0;
+    this.tutorial.entusiastaM =0;
+
+    if  (value==0) 
+      this.tutorial.dispuestoM = 1;
+    if  (value==1) 
+      this.tutorial.deseosoM = 1;
+    if  (value==2) 
+      this.tutorial.consecuenteM = 1;
+    if  (value==3) 
+      this.tutorial.entusiastaM = 1;
+
+    return 1;
+  }
+
+  setL21(value: Number): Number {
+  
+
+    this.tutorial.dispuestoL = 0;
+    this.tutorial.deseosoL =0;
+    this.tutorial.consecuenteL =0;
+    this.tutorial.entusiastaL =0;
+
+    if  (value==0) 
+      this.tutorial.dispuestoL = 1;
+    if  (value==1) 
+      this.tutorial.deseosoL = 1;
+    if  (value==2) 
+      this.tutorial.consecuenteL = 1;
+    if  (value==3) 
+      this.tutorial.entusiastaL = 1;
+
+    return 1;
+  }
+
+  setM22(value: Number): Number {
+
+    this.tutorial.admirableM = 0;
+    this.tutorial.bondadosoM =0;
+    this.tutorial.resignadoM =0;
+    this.tutorial.caracterfirmeM =0;
+
+    if  (value==0) 
+      this.tutorial.admirableM = 1;
+    if  (value==1) 
+      this.tutorial.bondadosoM = 1;
+    if  (value==2) 
+      this.tutorial.resignadoM = 1;
+    if  (value==3) 
+      this.tutorial.caracterfirmeM = 1;
+
+    return 1;
+  }
+
+
+  setL22(value: Number): Number {
+
+    this.tutorial.admirableL = 0;
+    this.tutorial.bondadosoL =0;
+    this.tutorial.resignadoL =0;
+    this.tutorial.caracterfirmeL =0;
+
+    if  (value==0) 
+      this.tutorial.admirableL = 1;
+    if  (value==1) 
+      this.tutorial.bondadosoL = 1;
+    if  (value==2) 
+      this.tutorial.resignadoL = 1;
+    if  (value==3) 
+      this.tutorial.caracterfirmeL = 1;
+
+    return 1;
+  }
+
+  setM23(value: Number): Number {  
+
+    this.tutorial.conformeM = 0;
+    this.tutorial.confiableM =0;
+    this.tutorial.pacificoM =0;
+    this.tutorial.positivoM =0;
+
+    if  (value==0) 
+      this.tutorial.conformeM = 1;
+    if  (value==1) 
+      this.tutorial.confiableM = 1;
+    if  (value==2) 
+      this.tutorial.pacificoM = 1;
+    if  (value==3) 
+      this.tutorial.positivoM = 1;
+
+    return 1;
+  }
+
+  setL23(value: Number): Number {  
+
+    this.tutorial.conformeL = 0;
+    this.tutorial.confiableL =0;
+    this.tutorial.pacificoL =0;
+    this.tutorial.positivoL =0;
+
+    if  (value==0) 
+      this.tutorial.conformeL = 1;
+    if  (value==1) 
+      this.tutorial.confiableL = 1;
+    if  (value==2) 
+      this.tutorial.pacificoL = 1;
+    if  (value==3) 
+      this.tutorial.positivoL = 1;
+
+    return 1;
+  }
+
+  setM24(value: Number): Number {  
+
+    
+    this.tutorial.inquietoM = 0;
+    this.tutorial.popularM =0;
+    this.tutorial.buenvecinoM =0;
+    this.tutorial.devotoM =0;
+
+    if  (value==0) 
+      this.tutorial.inquietoM = 1;
+    if  (value==1) 
+      this.tutorial.popularM = 1;
+    if  (value==2) 
+      this.tutorial.buenvecinoM = 1;
+    if  (value==3) 
+      this.tutorial.devotoM = 1;
+
+    return 1;
+  }
+
+
+  setL24(value: Number): Number {  
+
+    
+    this.tutorial.inquietoL = 0;
+    this.tutorial.popularL =0;
+    this.tutorial.buenvecinoL =0;
+    this.tutorial.devotoL =0;
+
+    if  (value==0) 
+      this.tutorial.inquietoL = 1;
+    if  (value==1) 
+      this.tutorial.popularL = 1;
+    if  (value==2) 
+      this.tutorial.buenvecinoL = 1;
+    if  (value==3) 
+      this.tutorial.devotoL = 1;
 
     return 1;
   }

@@ -225,11 +225,11 @@ export class Tutorial {
 
   nombre?: string;
   programaInteres?: string;
-  otroPrograma?: string = '-';
-  bachilleratoProcedencia?: string;
-  otroBachillerato?: string = '-';
-  telefono?: string;
-  email?: string;
+  //otroPrograma?: string = '-';
+  //bachilleratoProcedencia?: string;
+  //otroBachillerato?: string = '-';
+  //telefono?: string;
+  //email?: string;
   facebook?: string;
   facultad?: string = 'fnt';
 }
