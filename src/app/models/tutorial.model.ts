@@ -232,6 +232,16 @@ export class Tutorial {
   //email?: string;
   facebook?: string;
   facultad?: string = 'fnt';
+
+
+  FinalT?: Number = 0;
+  FinalM?: Number = 0;
+  FinalL?: Number = 0;
+
+  FinalResult?: Number = 0;
+  Result?: Number = 0;
+  message : string = '';
+
 }
 
 /*

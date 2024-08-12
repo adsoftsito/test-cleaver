@@ -231,7 +231,16 @@ export class TutorialDetailsComponent implements OnInit {
   buenvecinoM:  0,
   buenvecinoL:  0,
   devotoM:  0,
-  devotoL:  0
+  devotoL:  0,
+
+  FinalT:  0,
+  FinalM: 0,
+  FinalL:  0,
+
+  FinalResult: 0,
+  Result:  0,
+  message : ''
+
 
   };
 
@@ -748,6 +757,8 @@ arrInter  = {
   Result: any;
 
   message = '';
+
+  /*
   r1:number[][] = [[0,0,0,0],
                    [0,0,0,0],
                    [0,0,0,0]]  
@@ -755,6 +766,7 @@ arrInter  = {
   r2:number[][] = [[0,0,0,0],
                    [0,0,0,0],
                    [0,0,0,0]]  
+*/
 
   constructor(private tutorialService: TutorialService) { }
 
@@ -766,62 +778,166 @@ arrInter  = {
     this.message = '';
     this.currentTutorial = { ...this.tutorial };
 
-    this.MD = 7 + 1;
-              /*Number(this.currentTutorial.agresivoM) + Number(this.tutorial.tenazM) + Number(this.tutorial.determinadoM) + Number(this.tutorial.atrevidoM) +
-              Number(this.currentTutorial.afirmativoM) + Number(this.tutorial.persistenteM) + Number(this.tutorial.competitivoM) + Number(this.tutorial.caracterfirmeM) +
-              Number(this.currentTutorial.inconquistableM) + Number(this.tutorial.emprendedorM) + Number(this.tutorial.valienteM) + Number(this.tutorial.disputadorM) + Number(this.tutorial.confianzamismoM) + Number(this.tutorial.positivoM)
-              Number(this.currentTutorial.aventureroM) + Number(this.tutorial.vigorosoM) + Number(this.tutorial.decisivoM) + Number(this.tutorial.francoM) + + Number(this.tutorial.audazM) + + Number(this.tutorial.inquietoM);
-              */
-    this.MI = 1 + 1; 
-              /*Number(this.currentTutorial.agresivoM) + Number(this.tutorial.tenazM) + Number(this.tutorial.determinadoM) + Number(this.tutorial.atrevidoM) +
-              Number(this.currentTutorial.afirmativoM) + Number(this.tutorial.persistenteM) + Number(this.tutorial.competitivoM) + Number(this.tutorial.caracterfirmeM) +
-              Number(this.currentTutorial.inconquistableM) + Number(this.tutorial.emprendedorM) + Number(this.tutorial.valienteM) + Number(this.tutorial.disputadorM) + Number(this.tutorial.confianzamismoM) + Number(this.tutorial.positivoM)
-              Number(this.currentTutorial.aventureroM) + Number(this.tutorial.vigorosoM) + Number(this.tutorial.decisivoM) + Number(this.tutorial.francoM) + + Number(this.tutorial.audazM) + + Number(this.tutorial.inquietoM);
-              */
-    this.MS = 10 + 1; 
-    /*Number(this.currentTutorial.agresivoM) + Number(this.tutorial.tenazM) + Number(this.tutorial.determinadoM) + Number(this.tutorial.atrevidoM) +
-              Number(this.currentTutorial.afirmativoM) + Number(this.tutorial.persistenteM) + Number(this.tutorial.competitivoM) + Number(this.tutorial.caracterfirmeM) +
-              Number(this.currentTutorial.inconquistableM) + Number(this.tutorial.emprendedorM) + Number(this.tutorial.valienteM) + Number(this.tutorial.disputadorM) + Number(this.tutorial.confianzamismoM) + Number(this.tutorial.positivoM)
-              Number(this.currentTutorial.aventureroM) + Number(this.tutorial.vigorosoM) + Number(this.tutorial.decisivoM) + Number(this.tutorial.francoM) + + Number(this.tutorial.audazM) + + Number(this.tutorial.inquietoM);
-*/
-    this.MC = 2 + 1; 
-              /*Number(this.currentTutorial.agresivoM) + Number(this.tutorial.tenazM) + Number(this.tutorial.determinadoM) + Number(this.tutorial.atrevidoM) +
-              Number(this.currentTutorial.afirmativoM) + Number(this.tutorial.persistenteM) + Number(this.tutorial.competitivoM) + Number(this.tutorial.caracterfirmeM) +
-              Number(this.currentTutorial.inconquistableM) + Number(this.tutorial.emprendedorM) + Number(this.tutorial.valienteM) + Number(this.tutorial.disputadorM) + Number(this.tutorial.confianzamismoM) + Number(this.tutorial.positivoM)
-              Number(this.currentTutorial.aventureroM) + Number(this.tutorial.vigorosoM) + Number(this.tutorial.decisivoM) + Number(this.tutorial.francoM) + + Number(this.tutorial.audazM) + + Number(this.tutorial.inquietoM);
-*/
-    this.LD = 4 + 1;
-    /*
-     Number(this.currentTutorial.agresivoM) + Number(this.tutorial.tenazM) + Number(this.tutorial.determinadoM) + Number(this.tutorial.atrevidoM) +
-              Number(this.currentTutorial.afirmativoM) + Number(this.tutorial.persistenteM) + Number(this.tutorial.competitivoM) + Number(this.tutorial.caracterfirmeM) +
-              Number(this.currentTutorial.inconquistableM) + Number(this.tutorial.emprendedorM) + Number(this.tutorial.valienteM) + Number(this.tutorial.disputadorM) + Number(this.tutorial.confianzamismoM) + Number(this.tutorial.positivoM)
-              Number(this.currentTutorial.aventureroM) + Number(this.tutorial.vigorosoM) + Number(this.tutorial.decisivoM) + Number(this.tutorial.francoM) + + Number(this.tutorial.audazM) + + Number(this.tutorial.inquietoM);
-*/
+    // 7
+    this.MD = Number(this.tutorial.agresivoM) + 
+              Number(this.tutorial.tenazM) +
+              Number(this.tutorial.determinadoM) + 
+              Number(this.tutorial.atrevidoM) +
+              Number(this.currentTutorial.afirmativoM) + 
+              Number(this.tutorial.persistenteM) + 
+              Number(this.tutorial.competitivoM) + 
+              Number(this.tutorial.caracterfirmeM) +
+              Number(this.tutorial.inconquistableM) + 
+              Number(this.tutorial.emprendedorM) + 
+              Number(this.tutorial.valienteM) + 
+              Number(this.tutorial.disputadorM) + 
+              Number(this.tutorial.confianzamismoM) + 
+              Number(this.tutorial.positivoM)
+              Number(this.currentTutorial.aventureroM) + 
+              Number(this.tutorial.vigorosoM) + 
+              Number(this.tutorial.decisivoM) +
+              Number(this.tutorial.francoM) + 
+              Number(this.tutorial.audazM) + 
+              Number(this.tutorial.inquietoM);
+    // 1          
+    this.MI = Number(this.currentTutorial.persuasivoM) + 
+              Number(this.tutorial.almafiestaM) + 
+              Number(this.tutorial.atractivoM) + 
+              Number(this.tutorial.convincenteM) +
+              Number(this.tutorial.encantadorM) + 
+              Number(this.tutorial.animosoM) + 
+              Number(this.tutorial.confiadoM) + 
+              Number(this.tutorial.admirableM) +
+              Number(this.tutorial.juguetonM) +
+              Number(this.tutorial.optimistaM) + 
+              Number(this.tutorial.inspiradorM) + 
+              Number(this.tutorial.sangrelivianaM) + 
+              Number(this.tutorial.amigueroM) + 
+              Number(this.tutorial.cordialM) +
+              Number(this.tutorial.sociableM) + 
+              Number(this.tutorial.parlanchinM) + 
+              Number(this.tutorial.buencompaneroM) +
+              Number(this.tutorial.popularM);
+    //10         
+    this.MS = Number(this.currentTutorial.gentilM) + 
+              Number(this.tutorial.comodinoM) + 
+              Number(this.tutorial.bonachonM) + 
+              Number(this.tutorial.lealM) +
+              Number(this.tutorial.dispuestoM) + 
+              Number(this.tutorial.complacienteM) +
+              Number(this.tutorial.ecuanimeM) + 
+              Number(this.tutorial.generosoM) +
+              Number(this.tutorial.consideradoM) + 
+              Number(this.tutorial.bondadosoM) + 
+              Number(this.tutorial.obedienteM) + 
+              Number(this.tutorial.servicialM) + 
+              Number(this.tutorial.pacienteM) + 
+              Number(this.tutorial.confiableM) +
+              Number(this.tutorial.moderadoM) + 
+              Number(this.tutorial.indulgenteM) +
+              Number(this.tutorial.controladoM) + 
+              Number(this.tutorial.satisfechoM) + 
+              Number(this.tutorial.buenvecinoM);
+    // 2
+    this.MC = Number(this.tutorial.humildeM) + 
+              Number(this.tutorial.temerosodiosM) + 
+              Number(this.tutorial.cautelosoM) + 
+              Number(this.tutorial.consecuenteM) +
+              Number(this.tutorial.menteabiertaM) + 
+              Number(this.tutorial.precisoM) + 
+              Number(this.tutorial.disciplinadoM) +
+              Number(this.tutorial.respetuosoM) +
+              Number(this.tutorial.adaptableM) + 
+              Number(this.tutorial.mesuradohablarM) + 
+              Number(this.tutorial.pacificoM) + 
+              Number(this.tutorial.receptivoM) + 
+              Number(this.tutorial.exactoM) +
+              Number(this.tutorial.diplomaticoM) +
+              Number(this.tutorial.devotoM);
+              
+    // 4
+    this.LD = Number(this.currentTutorial.originalL) + 
+              Number(this.tutorial.tenazL) + 
+              Number(this.tutorial.atractivoL) + 
+              Number(this.tutorial.entusiastaL) +
+              Number(this.tutorial.fuerzavoluntadL) + 
+              Number(this.tutorial.afirmativoL) + 
+              Number(this.tutorial.nerviosoL) + 
+              Number(this.tutorial.persistenteL) +
+              Number(this.tutorial.competitivoL) + 
+              Number(this.tutorial.emprendedorM) + 
+              Number(this.tutorial.caracterfirmeL) + 
+              Number(this.tutorial.inconquistableL) + 
+              Number(this.tutorial.emprendedorL) + 
+              Number(this.tutorial.disputadorL)
+              Number(this.tutorial.confianzamismoL) + 
+              Number(this.tutorial.positivoL) + 
+              Number(this.tutorial.aventureroL) + 
+              Number(this.tutorial.vigorosoL) + 
+              Number(this.tutorial.decisivoL) + 
+              Number(this.tutorial.francoL)+
+              Number(this.tutorial.audazL) + 
+              Number(this.tutorial.inquietoL);
 
-    this.LI = 7 + 1;
-    /*
-    Number(this.currentTutorial.agresivoM) + Number(this.tutorial.tenazM) + Number(this.tutorial.determinadoM) + Number(this.tutorial.atrevidoM) +
-              Number(this.currentTutorial.afirmativoM) + Number(this.tutorial.persistenteM) + Number(this.tutorial.competitivoM) + Number(this.tutorial.caracterfirmeM) +
-              Number(this.currentTutorial.inconquistableM) + Number(this.tutorial.emprendedorM) + Number(this.tutorial.valienteM) + Number(this.tutorial.disputadorM) + Number(this.tutorial.confianzamismoM) + Number(this.tutorial.positivoM)
-              Number(this.currentTutorial.aventureroM) + Number(this.tutorial.vigorosoM) + Number(this.tutorial.decisivoM) + Number(this.tutorial.francoM) + + Number(this.tutorial.audazM) + + Number(this.tutorial.inquietoM);
-*/
+    // 7
+    this.LI = Number(this.tutorial.almafiestaL) + 
+              Number(this.tutorial.atractivoL) + 
+              Number(this.tutorial.convincenteL) + 
+              Number(this.tutorial.encantadorL) +
+              Number(this.tutorial.animosoL) + 
+              Number(this.tutorial.jovialL) + 
+              Number(this.tutorial.ani_mosoL) + 
+              Number(this.tutorial.alegreL) +
+              Number(this.tutorial.juguetonL) + 
+              Number(this.tutorial.optimistaL) + 
+              Number(this.tutorial.sangrelivianaL) +
+              Number(this.tutorial.amigueroL) +
+              Number(this.tutorial.confiableL) +
+              Number(this.tutorial.cordialL) +
+              Number(this.tutorial.sociableL) + 
+              Number(this.tutorial.parlanchinL) +
+              Number(this.tutorial.buencompaneroL) + 
+              Number(this.tutorial.refinadoL) + 
+              Number(this.tutorial.popularL);
 
-    this.LS = 5+2;
-    /*
-    Number(this.currentTutorial.agresivoM) + Number(this.tutorial.tenazM) + Number(this.tutorial.determinadoM) + Number(this.tutorial.atrevidoM) +
-              Number(this.currentTutorial.afirmativoM) + Number(this.tutorial.persistenteM) + Number(this.tutorial.competitivoM) + Number(this.tutorial.caracterfirmeM) +
-              Number(this.currentTutorial.inconquistableM) + Number(this.tutorial.emprendedorM) + Number(this.tutorial.valienteM) + Number(this.tutorial.disputadorM) + Number(this.tutorial.confianzamismoM) + Number(this.tutorial.positivoM)
-              Number(this.currentTutorial.aventureroM) + Number(this.tutorial.vigorosoM) + Number(this.tutorial.decisivoM) + Number(this.tutorial.francoM) + + Number(this.tutorial.audazM) + + Number(this.tutorial.inquietoM);
-*/
+    // 5
+    this.LS = Number(this.tutorial.gentilL) + 
+              Number(this.tutorial.comodinoL) + 
+              Number(this.tutorial.agradableL) + 
+              Number(this.tutorial.complacienteL) +
+              Number(this.tutorial.simpatizadorL) + 
+              Number(this.tutorial.ecuanimeL) + 
+              Number(this.tutorial.generosoL) + 
+              Number(this.tutorial.consideradoL) +
+              Number(this.tutorial.servicialL) +
+              Number(this.tutorial.sumisoL) + 
+              Number(this.tutorial.indiferenteL) + 
+              Number(this.tutorial.pacienteL) + 
+              Number(this.tutorial.conformeL) + 
+              Number(this.tutorial.moderadoL) +
+              Number(this.tutorial.indulgenteL) + 
+              Number(this.tutorial.controladoL) + 
+              Number(this.tutorial.cohibidoL) + 
+              Number(this.tutorial.satisfechoL) +
+              Number(this.tutorial.buenvecinoL);
 
-    this.LC = 3+2;
-    
-    /*
-    Number(this.currentTutorial.agresivoM) + Number(this.tutorial.tenazM) + Number(this.tutorial.determinadoM) + Number(this.tutorial.atrevidoM) +
-              Number(this.currentTutorial.afirmativoM) + Number(this.tutorial.persistenteM) + Number(this.tutorial.competitivoM) + Number(this.tutorial.caracterfirmeM) +
-              Number(this.currentTutorial.inconquistableM) + Number(this.tutorial.emprendedorM) + Number(this.tutorial.valienteM) + Number(this.tutorial.disputadorM) + Number(this.tutorial.confianzamismoM) + Number(this.tutorial.positivoM)
-              Number(this.currentTutorial.aventureroM) + Number(this.tutorial.vigorosoM) + Number(this.tutorial.decisivoM) + Number(this.tutorial.francoM) + + Number(this.tutorial.audazM) + + Number(this.tutorial.inquietoM);
-*/
+    // 3
+    this.LC = Number(this.tutorial.humildeL) + 
+              Number(this.tutorial.temerosoL) + 
+              Number(this.tutorial.temerosodiosL) + 
+              Number(this.tutorial.cautelosoL) +
+              Number(this.tutorial.docilL) + 
+              Number(this.tutorial.consecuenteL) + 
+              Number(this.tutorial.toleranteL) + 
+              Number(this.tutorial.precisoL) +
+              Number(this.tutorial.armoniosoL) +
+              Number(this.tutorial.resignadoL) +
+              Number(this.tutorial.quisquillosoL) +
+              Number(this.tutorial.timidoL) + 
+              Number(this.tutorial.pacificoL) + 
+              Number(this.tutorial.estetaL)
+              Number(this.tutorial.convencionalL) + 
+              Number(this.tutorial.devotoL);
 
     this.TotD = Number(this.MD) - Number(this.LD);
     this.TotI = Number(this.MI) - Number(this.LI);
