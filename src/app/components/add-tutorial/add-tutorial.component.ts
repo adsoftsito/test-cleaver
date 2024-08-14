@@ -11,7 +11,39 @@ export class AddTutorialComponent {
   tutorial: Tutorial = new Tutorial();
   submitted = false;
 
+  itemApPaternoError = '';
+  itemApMaternoError = '';
+  itemNombreError = '';
+  itemMatriculaError = '';
+  itemCarreraError = '';
 
+
+  item1Error = '';
+  item2Error = '';
+  item3Error = '';
+  item4Error = '';
+  item5Error = '';
+  item6Error = '';
+  item7Error = '';
+  item8Error = '';
+  item9Error = '';
+  item10Error = '';
+  item11Error = '';
+  item12Error = '';
+  item13Error = '';
+  item14Error = '';
+  item15Error = '';
+  item16Error = '';
+  item17Error = '';
+  item18Error = '';
+  item19Error = '';
+  item20Error = '';
+  item21Error = '';
+  item22Error = '';
+  item23Error = '';
+  item24Error = '';
+  
+  missingValuesError = '';
 
   arrMD : Array<number> = [1,
     5,
@@ -526,11 +558,123 @@ arrInter  = {
   Result: any;
 
   message = '';
+greenClass: string|string[]|Set<string>|{ [klass: string]: any; }|null|undefined;
 
 
-  constructor(private tutorialService: TutorialService) { }
+  validateText(myText : string) {
+    var textFill = 0;
+    console.log(myText);
+    
+    if ((myText != "-")&&(myText!=""))
+      textFill = 1;
+    return textFill;
+  }
+  constructor(private tutorialService: TutorialService) { 
+    this.tutorial.appPaterno = "-";
+    this.tutorial.appMaterno = "-";
+    this.tutorial.nombre = "-";
+    this.tutorial.facebook = "-";
+    this.tutorial.programaInteres = "-";
+
+  }
+
+  validateGroups(): number {
+    var sumGroups = 0;
+
+    var itemApPaterno = this.validateText(this.tutorial.appPaterno as string);
+    if (itemApPaterno == 0) this.itemApPaternoError = "Ap Paterno requerido."
+        else this.itemApPaternoError = ""
+
+    var itemApMaterno = this.validateText(this.tutorial.appMaterno as string);
+    if (itemApMaterno == 0) this.itemApMaternoError = "Ap Materno requerido."
+        else this.itemApMaternoError = ""
+
+    var itemNombre = this.validateText(this.tutorial.nombre as string);
+    if (itemNombre == 0) this.itemNombreError = "Nombre requerido."
+        else this.itemNombreError = ""
+
+    var itemMatricula = this.validateText(this.tutorial.facebook as string);
+    if (itemMatricula == 0) this.itemMatriculaError = "Matricula requerida."
+        else this.itemMatriculaError = ""
+    
+    var itemCarrera = this.validateText(this.tutorial.programaInteres as string);
+    if (itemCarrera == 0) this.itemCarreraError = "Carrera requerida."
+            else this.itemCarreraError = ""
+    
+    var item1 = this.validateItem(this.tutorial.persuasivoM as number, 
+                                  this.tutorial.persuasivoL as number, 
+                                  this.tutorial.gentilM as number, 
+                                  this.tutorial.gentilL as number, 
+                                  this.tutorial.humildeM as number, 
+                                  this.tutorial.humildeL as number, 
+                                  this.tutorial.originalM as number, 
+                                  this.tutorial.originalL as number, 
+                                );
+    if (item1 < 2) 
+      this.item1Error = "Grupo 1 requerido ...";
+    
+    var item2 = this.validateItem(this.tutorial.fuerzavoluntadM as number, 
+                                  this.tutorial.fuerzavoluntadL as number, 
+                                  this.tutorial.menteabiertaM as number, 
+                                  this.tutorial.menteabiertaL as number, 
+                                  this.tutorial.complacienteM as number, 
+                                  this.tutorial.complacienteL as number, 
+                                  this.tutorial.animosoM as number, 
+                                  this.tutorial.animosoL as number, 
+    );
+    if (item2 < 2) 
+      this.item2Error = "Grupo 2 requerido ...";
+    
+    var item3 = this.validateItem(
+      this.tutorial.obedienteM as number, 
+      this.tutorial.obedienteL as number, 
+      this.tutorial.quisquillosoM as number, 
+      this.tutorial.quisquillosoL as number, 
+      this.tutorial.inconquistableM as number, 
+      this.tutorial.inconquistableL as number, 
+      this.tutorial.juguetonM as number, 
+      this.tutorial.juguetonL as number, 
+    );
+    if (item3 < 2) 
+      this.item3Error = "Grupo 3 requerido ...";
+
+    var item4 = this.validateItem(
+      this.tutorial.aventureroM as number, 
+      this.tutorial.aventureroL as number, 
+      this.tutorial.receptivoM as number, 
+      this.tutorial.receptivoL as number, 
+      this.tutorial.cordialM as number, 
+      this.tutorial.cordialL as number, 
+      this.tutorial.moderadoM as number, 
+      this.tutorial.moderadoL as number, 
+);
+    if (item4 < 2) 
+      this.item4Error = "Grupo 4 requerido ...";
+    
+
+    sumGroups = item1 + item2 + item3 + item4;
+    return sumGroups;
+  }
 
   saveTutorial(): void {
+    
+    var sumGroups = this.validateGroups();
+    //console.log(sumGroups);
+
+    if (sumGroups < 4) {
+      this.missingValuesError = "LLenar campos requeridos" 
+    }
+       /*
+    this.tutorialService.create(this.tutorial).then(() => {
+      console.log('Created new item successfully!');
+      this.submitted = true;
+    });
+    */
+  }
+
+  calculateTest() {
+
+  
     console.log(this.tutorial);
 
     this.message = '';
@@ -765,16 +909,33 @@ arrInter  = {
 
 
     
-    this.tutorialService.create(this.tutorial).then(() => {
-      console.log('Created new item successfully!');
-      this.submitted = true;
-    });
     
   }
 
   newTutorial(): void {
     this.submitted = false;
     this.tutorial = new Tutorial();
+  }
+
+  setDuplicateError(value: number): string
+  {
+    var message = ""
+    if (value ==1) 
+      message = "ERROR: Seleccione Diferentes categorias";
+    return message;
+  }
+
+  validateItem(value0: number, value1: number, value2: number, value3: number,
+               value4: number, value5: number, value6: number, value7: number
+  ): number
+  {
+    var sum = value0 + value1 + value2 + value3 + value4 + value5 + value6 + value7;
+    if ((value0 == 1) && (value1 == 1)) sum = 0;
+    if ((value2 == 1) && (value3 == 1)) sum = 0;
+    if ((value4 == 1) && (value5 == 1)) sum = 0;
+    if ((value6 == 1) && (value7 == 1)) sum = 0;
+
+    return sum;
   }
 
   setM1(value: Number): Number {
@@ -784,33 +945,77 @@ arrInter  = {
     this.tutorial.humildeM =0;
     this.tutorial.originalM =0;
 
-    if  (value==0) 
+    if  (value==0) {
       this.tutorial.persuasivoM = 1;
-    if  (value==1) 
+      this.item1Error = this.setDuplicateError(this.tutorial.persuasivoL as number);
+    }
+    if  (value==1) {
       this.tutorial.gentilM = 1;
-    if  (value==2) 
+      this.item1Error = this.setDuplicateError(this.tutorial.gentilL as number);
+    }
+
+    if  (value==2) {
       this.tutorial.humildeM = 1;
-    if  (value==3) 
+      this.item1Error = this.setDuplicateError(this.tutorial.humildeL as number);
+  }
+
+  if  (value==3) {
       this.tutorial.originalM = 1;
+      this.item1Error = this.setDuplicateError(this.tutorial.originalL as number);
+  }
+
 
     return 1;
-  }
-  setL1(value: Number): void {
+}
+
+setL1(value: Number): void {
 
     this.tutorial.persuasivoL = 0;
     this.tutorial.gentilL =0;
     this.tutorial.humildeL =0;
     this.tutorial.originalL =0;
 
-    if  (value==0) 
+    if  (value==0) {
       this.tutorial.persuasivoL = 1;
-    if  (value==1) 
-      this.tutorial.gentilL = 1;
-    if  (value==2) 
-      this.tutorial.humildeL = 1;
-    if  (value==3) 
-      this.tutorial.originalL = 1;
+      this.item1Error = this.setDuplicateError(this.tutorial.persuasivoM as number);
+      /*
+      if (this.tutorial.persuasivoM == 1)
+        this.item1Error = "ERROR: Seleccione Diferentes categorias"
+     else {
+        this.item1Error = "";
+      }*/
+    }
 
+    if  (value==1) {
+      this.tutorial.gentilL = 1;
+      this.item1Error = this.setDuplicateError(this.tutorial.gentilM as number);
+      /*
+      if (this.tutorial.gentilM == 1)
+        this.item1Error = "ERROR: Seleccione Diferentes categorias"
+      else {
+        this.item1Error = "";
+      } */
+    }
+    if  (value==2) {
+      this.tutorial.humildeL = 1;
+      this.item1Error = this.setDuplicateError(this.tutorial.humildeM as number);
+    /*
+    if (this.tutorial.humildeM == 1)
+      this.item1Error = "ERROR: Seleccione Diferentes categorias"
+    else {
+      this.item1Error = "";
+    } */
+  }
+    if  (value==3) {
+      this.tutorial.originalL = 1;
+      this.item1Error = this.setDuplicateError(this.tutorial.originalM as number);
+    /*
+    if (this.tutorial.originalM == 1)
+      this.item1Error = "ERROR: Seleccione Diferentes categorias"
+    else {
+      this.item1Error = "";
+    } */
+  }
 
   }
 
@@ -822,14 +1027,26 @@ arrInter  = {
     this.tutorial.complacienteM =0;
     this.tutorial.animosoM =0;
 
-    if  (value==0) 
+    if  (value==0) {
       this.tutorial.fuerzavoluntadM = 1;
-    if  (value==1) 
+      this.item2Error = this.setDuplicateError(this.tutorial.fuerzavoluntadL as number);
+
+    }
+
+    if  (value==1) {
       this.tutorial.menteabiertaM = 1;
-    if  (value==2) 
+      this.item2Error = this.setDuplicateError(this.tutorial.menteabiertaL as number);
+
+    }
+    if  (value==2) {
       this.tutorial.complacienteM = 1;
-    if  (value==3) 
+      this.item2Error = this.setDuplicateError(this.tutorial.competitivoL as number);
+
+    }
+    if  (value==3) {
       this.tutorial.animosoM = 1;
+      this.item2Error = this.setDuplicateError(this.tutorial.animosoL as number);
+    }
 
     return 1;
   }
@@ -841,15 +1058,27 @@ arrInter  = {
     this.tutorial.complacienteL =0;
     this.tutorial.animosoL =0;
 
-    if  (value==0) 
+    if  (value==0) {
       this.tutorial.fuerzavoluntadL = 1;
-    if  (value==1) 
-      this.tutorial.menteabiertaL = 1;
-    if  (value==2) 
-      this.tutorial.complacienteL = 1;
-    if  (value==3) 
-      this.tutorial.animosoL = 1;
+      this.item2Error = this.setDuplicateError(this.tutorial.fuerzavoluntadM as number);
 
+    }
+    
+    if  (value==1) {
+      this.tutorial.menteabiertaL = 1;
+      this.item2Error = this.setDuplicateError(this.tutorial.menteabiertaM as number);
+
+    }
+
+    if  (value==2) {
+      this.tutorial.complacienteL = 1;
+      this.item2Error = this.setDuplicateError(this.tutorial.complacienteM as number);
+    }
+    
+    if  (value==3) {
+      this.tutorial.animosoL = 1;
+      this.item2Error = this.setDuplicateError(this.tutorial.animosoM as number);
+    }
     return 1;
   }
 
@@ -860,14 +1089,25 @@ arrInter  = {
     this.tutorial.inconquistableM =0;
     this.tutorial.juguetonM =0;
 
-    if  (value==0) 
+    if  (value==0) {
       this.tutorial.obedienteM = 1;
-    if  (value==1) 
+      this.item3Error = this.setDuplicateError(this.tutorial.obedienteL as number);
+    }
+
+    if  (value==1) {
       this.tutorial.quisquillosoM = 1;
-    if  (value==2) 
+      this.item3Error = this.setDuplicateError(this.tutorial.quisquillosoL as number);
+    }
+
+    if  (value==2) {
       this.tutorial.inconquistableM = 1;
-    if  (value==3) 
+      this.item3Error = this.setDuplicateError(this.tutorial.inconquistableL as number);
+    }
+
+    if  (value==3) {
       this.tutorial.juguetonM = 1;
+      this.item3Error = this.setDuplicateError(this.tutorial.juguetonL as number);
+    }
 
     return 1;
   }
@@ -879,14 +1119,25 @@ arrInter  = {
     this.tutorial.inconquistableL =0;
     this.tutorial.juguetonL =0;
 
-    if  (value==0) 
+    if  (value==0) {
       this.tutorial.obedienteL = 1;
-    if  (value==1) 
+      this.item3Error = this.setDuplicateError(this.tutorial.obedienteM as number);
+    }
+
+    if  (value==1) {
       this.tutorial.quisquillosoL = 1;
-    if  (value==2) 
+      this.item3Error = this.setDuplicateError(this.tutorial.quisquillosoM as number);
+    }
+
+    if  (value==2) {
       this.tutorial.inconquistableL = 1;
-    if  (value==3) 
+      this.item3Error = this.setDuplicateError(this.tutorial.inconquistableM as number);
+    }
+
+    if  (value==3) {
       this.tutorial.juguetonL = 1;
+      this.item3Error = this.setDuplicateError(this.tutorial.juguetonM as number);
+    }
 
     return 1;
   }
@@ -898,14 +1149,25 @@ arrInter  = {
     this.tutorial.cordialM =0;
     this.tutorial.moderadoM =0;
 
-    if  (value==0) 
+    if  (value==0) {
       this.tutorial.aventureroM = 1;
-    if  (value==1) 
+      this.item4Error = this.setDuplicateError(this.tutorial.aventureroL as number);
+    }
+
+    if  (value==1) {
       this.tutorial.receptivoM = 1;
-    if  (value==2) 
+      this.item4Error = this.setDuplicateError(this.tutorial.receptivoL as number);
+    }
+
+    if  (value==2) {
       this.tutorial.cordialM = 1;
-    if  (value==3) 
+      this.item4Error = this.setDuplicateError(this.tutorial.cordialL as number);
+    }
+
+    if  (value==3) {
       this.tutorial.moderadoM = 1;
+      this.item4Error = this.setDuplicateError(this.tutorial.moderadoL as number);
+    }
 
     return 1;
   }
@@ -917,14 +1179,25 @@ arrInter  = {
     this.tutorial.cordialL =0;
     this.tutorial.moderadoL =0;
 
-    if  (value==0) 
+    if  (value==0) {
       this.tutorial.aventureroL = 1;
-    if  (value==1) 
+      this.item4Error = this.setDuplicateError(this.tutorial.aventureroM as number);
+    }
+
+    if  (value==1) {
       this.tutorial.receptivoL = 1;
-    if  (value==2) 
+      this.item4Error = this.setDuplicateError(this.tutorial.receptivoM as number);
+    }
+
+    if  (value==2) {
       this.tutorial.cordialL = 1;
-    if  (value==3) 
+      this.item4Error = this.setDuplicateError(this.tutorial.cordialM as number);
+    }
+
+    if  (value==3) {
       this.tutorial.moderadoL = 1;
+      this.item4Error = this.setDuplicateError(this.tutorial.moderadoM as number);
+    }
 
     return 1;
   }
@@ -938,13 +1211,28 @@ arrInter  = {
     this.tutorial.temerosoM =0;
 
     if  (value==0) 
+    {
       this.tutorial.agresivoM = 1;
+      this.item5Error = this.setDuplicateError(this.tutorial.agresivoL as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.almafiestaM = 1;
+      this.item5Error = this.setDuplicateError(this.tutorial.almafiestaL as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.comodinoM = 1;
+      this.item5Error = this.setDuplicateError(this.tutorial.comodinoL as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.temerosoM = 1;
+      this.item5Error = this.setDuplicateError(this.tutorial.temerosoL as number);
+    }
 
     return 1;
   }
@@ -957,13 +1245,28 @@ arrInter  = {
     this.tutorial.temerosoL =0;
 
     if  (value==0) 
+    {
       this.tutorial.agresivoL = 1;
+      this.item5Error = this.setDuplicateError(this.tutorial.agresivoM as number);
+    }
+    
     if  (value==1) 
+    {
       this.tutorial.almafiestaL = 1;
+      this.item5Error = this.setDuplicateError(this.tutorial.almafiestaM as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.comodinoL = 1;
+      this.item5Error = this.setDuplicateError(this.tutorial.comodinoM as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.temerosoL = 1;
+      this.item5Error = this.setDuplicateError(this.tutorial.temerosoM as number);
+    }
 
     return 1;
   }
@@ -976,13 +1279,28 @@ arrInter  = {
     this.tutorial.afirmativoM =0;
 
     if  (value==0) 
+    {
       this.tutorial.confiadoM = 1;
+      this.item6Error = this.setDuplicateError(this.tutorial.confiadoL as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.simpatizadorM = 1;
+      this.item6Error = this.setDuplicateError(this.tutorial.simpatizadorL as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.toleranteM = 1;
+      this.item6Error = this.setDuplicateError(this.tutorial.toleranteL as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.afirmativoM = 1;
+      this.item6Error = this.setDuplicateError(this.tutorial.afirmativoL as number);
+    }
 
     return 1;
   }
@@ -995,13 +1313,28 @@ arrInter  = {
     this.tutorial.afirmativoL =0;
 
     if  (value==0) 
+    {
       this.tutorial.confiadoL = 1;
+      this.item6Error = this.setDuplicateError(this.tutorial.confiadoM as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.simpatizadorL = 1;
+      this.item6Error = this.setDuplicateError(this.tutorial.simpatizadorM as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.toleranteL = 1;
+      this.item6Error = this.setDuplicateError(this.tutorial.toleranteM as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.afirmativoL = 1;
+      this.item6Error = this.setDuplicateError(this.tutorial.afirmativoM as number);
+    }
 
     return 1;
   }
@@ -1017,13 +1350,28 @@ arrInter  = {
     this.tutorial.servicialM =0;
 
     if  (value==0) 
+    {
       this.tutorial.respetuosoM = 1;
+      this.item7Error = this.setDuplicateError(this.tutorial.respetuosoL as number);
+    }
+    
     if  (value==1) 
+    {
       this.tutorial.emprendedorM = 1;
+      this.item7Error = this.setDuplicateError(this.tutorial.emprendedorL as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.optimistaM = 1;
+      this.item7Error = this.setDuplicateError(this.tutorial.optimistaL as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.servicialM = 1;
+      this.item7Error = this.setDuplicateError(this.tutorial.servicialL as number);
+    }
 
     return 1;
   }
@@ -1037,13 +1385,28 @@ arrInter  = {
     this.tutorial.servicialL =0;
 
     if  (value==0) 
+    {
       this.tutorial.respetuosoL = 1;
+      this.item7Error = this.setDuplicateError(this.tutorial.respetuosoM as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.emprendedorL = 1;
+      this.item7Error = this.setDuplicateError(this.tutorial.emprendedorM as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.optimistaL = 1;
+      this.item7Error = this.setDuplicateError(this.tutorial.optimistaM as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.servicialL = 1;
+      this.item7Error = this.setDuplicateError(this.tutorial.servicialM as number);
+    }
 
     return 1;
   }
@@ -1057,13 +1420,28 @@ arrInter  = {
     this.tutorial.sociableM =0;
 
     if  (value==0) 
+    {
       this.tutorial.indulgenteM = 1;
+      this.item8Error = this.setDuplicateError(this.tutorial.indulgenteL as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.estetaM = 1;
+      this.item8Error = this.setDuplicateError(this.tutorial.estetaL as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.vigorosoM = 1;
+      this.item8Error = this.setDuplicateError(this.tutorial.vigorosoL as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.sociableM = 1;
+      this.item8Error = this.setDuplicateError(this.tutorial.sociableL as number);
+    }
 
     return 1;
   }
@@ -1077,13 +1455,28 @@ arrInter  = {
     this.tutorial.sociableL =0;
 
     if  (value==0) 
+    {
       this.tutorial.indulgenteL = 1;
+      this.item8Error = this.setDuplicateError(this.tutorial.indulgenteM as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.estetaL = 1;
+      this.item8Error = this.setDuplicateError(this.tutorial.estetaM as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.vigorosoL = 1;
+      this.item8Error = this.setDuplicateError(this.tutorial.vigorosoM as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.sociableL = 1;
+      this.item8Error = this.setDuplicateError(this.tutorial.sociableM as number);
+    }
 
     return 1;
   }
@@ -1098,13 +1491,28 @@ arrInter  = {
     this.tutorial.atractivoM =0;
 
     if  (value==0) 
+    {
       this.tutorial.agradableM = 1;
+      this.item9Error = this.setDuplicateError(this.tutorial.agradableL as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.temerosodiosM = 1;
+      this.item9Error = this.setDuplicateError(this.tutorial.temerosodiosL as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.tenazM = 1;
+      this.item9Error = this.setDuplicateError(this.tutorial.tenazL as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.atractivoM = 1;
+      this.item9Error = this.setDuplicateError(this.tutorial.atractivoL as number);
+    }
 
     return 1;
   }
@@ -1119,14 +1527,29 @@ arrInter  = {
     this.tutorial.atractivoL =0;
 
     if  (value==0) 
+    {
       this.tutorial.agradableL = 1;
-    if  (value==1) 
-      this.tutorial.temerosodiosL = 1;
-    if  (value==2) 
-      this.tutorial.tenazL = 1;
-    if  (value==3) 
-      this.tutorial.atractivoL = 1;
+      this.item9Error = this.setDuplicateError(this.tutorial.agradableM as number);
+    }
 
+    if  (value==1) 
+    {
+      this.tutorial.temerosodiosL = 1;
+      this.item9Error = this.setDuplicateError(this.tutorial.temerosodiosM as number);
+    }
+
+    if  (value==2) 
+    {
+      this.tutorial.tenazL = 1;
+      this.item9Error = this.setDuplicateError(this.tutorial.tenazM as number);
+    }
+
+    if  (value==3) 
+    {
+      this.tutorial.atractivoL = 1;
+      this.item9Error = this.setDuplicateError(this.tutorial.atractivoM as number);
+    }
+    
     return 1;
   }
 
@@ -1139,13 +1562,28 @@ arrInter  = {
     this.tutorial.jovialM =0;
 
     if  (value==0) 
+    {
       this.tutorial.ecuanimeM = 1;
+      this.item10Error = this.setDuplicateError(this.tutorial.ecuanimeL as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.precisoM = 1;
+      this.item10Error = this.setDuplicateError(this.tutorial.precisoL as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.nerviosoM = 1;
+      this.item10Error = this.setDuplicateError(this.tutorial.nerviosoL as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.jovialM = 1;
+      this.item10Error = this.setDuplicateError(this.tutorial.jovialL as number);
+    }
 
     return 1;
   }
@@ -1159,13 +1597,28 @@ arrInter  = {
     this.tutorial.jovialL =0;
 
     if  (value==0) 
+    {
       this.tutorial.ecuanimeL = 1;
+      this.item10Error = this.setDuplicateError(this.tutorial.ecuanimeM as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.precisoL = 1;
+      this.item10Error = this.setDuplicateError(this.tutorial.precisoM as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.nerviosoL = 1;
+      this.item10Error = this.setDuplicateError(this.tutorial.nerviosoM as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.jovialL = 1;
+      this.item10Error = this.setDuplicateError(this.tutorial.jovialM as number);
+    }
 
     return 1;
   }
@@ -1179,13 +1632,28 @@ arrInter  = {
     this.tutorial.timidoM =0;
 
     if  (value==0) 
+    {
       this.tutorial.valienteM = 1;
+      this.item11Error = this.setDuplicateError(this.tutorial.valienteL as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.inspiradorM = 1;
+      this.item11Error = this.setDuplicateError(this.tutorial.inspiradorL as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.sumisoM = 1;
+      this.item11Error = this.setDuplicateError(this.tutorial.sumisoL as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.timidoM = 1;
+      this.item11Error = this.setDuplicateError(this.tutorial.timidoL as number);
+    }
 
     return 1;
   }
@@ -1199,13 +1667,28 @@ arrInter  = {
     this.tutorial.timidoL =0;
 
     if  (value==0) 
+    {
       this.tutorial.valienteL = 1;
+      this.item11Error = this.setDuplicateError(this.tutorial.valienteM as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.inspiradorL = 1;
+      this.item11Error = this.setDuplicateError(this.tutorial.inspiradorM as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.sumisoL = 1;
+      this.item11Error = this.setDuplicateError(this.tutorial.sumisoM as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.timidoL = 1;
+      this.item11Error = this.setDuplicateError(this.tutorial.timidoM as number);
+    }
 
     return 1;
   }
@@ -1219,13 +1702,28 @@ arrInter  = {
     this.tutorial.decisivoM =0;
 
     if  (value==0) 
+    {
       this.tutorial.parlanchinM = 1;
+      this.item12Error = this.setDuplicateError(this.tutorial.parlanchinL as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.controladoM = 1;
+      this.item12Error = this.setDuplicateError(this.tutorial.controladoL as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.convencionalM = 1;
+      this.item12Error = this.setDuplicateError(this.tutorial.convencionalL as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.decisivoM = 1;
+      this.item12Error = this.setDuplicateError(this.tutorial.decisivoL as number);
+    }
 
     return 1;
   }
@@ -1239,13 +1737,28 @@ arrInter  = {
     this.tutorial.decisivoL =0;
 
     if  (value==0) 
+    {
       this.tutorial.parlanchinL = 1;
+      this.item12Error = this.setDuplicateError(this.tutorial.parlanchinM as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.controladoL = 1;
+      this.item12Error = this.setDuplicateError(this.tutorial.controladoM as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.convencionalL = 1;
+      this.item12Error = this.setDuplicateError(this.tutorial.convencionalM as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.decisivoL = 1;
+      this.item12Error = this.setDuplicateError(this.tutorial.decisivoM as number);
+    }
 
     return 1;
   }
@@ -1259,13 +1772,28 @@ arrInter  = {
     this.tutorial.bonachonM =0;
 
     if  (value==0) 
+    {
       this.tutorial.cautelosoM = 1;
+      this.item13Error = this.setDuplicateError(this.tutorial.cautelosoL as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.determinadoM = 1;
+      this.item13Error = this.setDuplicateError(this.tutorial.determinadoL as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.convincenteM = 1;
+      this.item13Error = this.setDuplicateError(this.tutorial.convincenteL as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.bonachonM = 1;
+      this.item13Error = this.setDuplicateError(this.tutorial.bonachonL as number);
+    }
 
     return 1;
   }
@@ -1280,13 +1808,28 @@ arrInter  = {
     this.tutorial.bonachonL =0;
 
     if  (value==0) 
+    {
       this.tutorial.cautelosoL = 1;
+      this.item13Error = this.setDuplicateError(this.tutorial.cautelosoM as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.determinadoL = 1;
+      this.item13Error = this.setDuplicateError(this.tutorial.determinadoM as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.convincenteL = 1;
+      this.item13Error = this.setDuplicateError(this.tutorial.convincenteM as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.bonachonL = 1;
+      this.item13Error = this.setDuplicateError(this.tutorial.bonachonM as number);
+    }
 
     return 1;
   }
@@ -1301,13 +1844,28 @@ arrInter  = {
     this.tutorial.persistenteM =0;
 
     if  (value==0) 
+    {
       this.tutorial.disciplinadoM = 1;
+      this.item14Error = this.setDuplicateError(this.tutorial.disciplinadoL as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.generosoM = 1;
+      this.item14Error = this.setDuplicateError(this.tutorial.generosoL as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.ani_mosoM = 1;
+      this.item14Error = this.setDuplicateError(this.tutorial.ani_mosoL as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.persistenteM = 1;
+      this.item14Error = this.setDuplicateError(this.tutorial.persistenteL as number);
+    }
 
     return 1;
   }
@@ -1321,13 +1879,28 @@ arrInter  = {
     this.tutorial.persistenteL =0;
 
     if  (value==0) 
+    {
       this.tutorial.disciplinadoL = 1;
+      this.item14Error = this.setDuplicateError(this.tutorial.disciplinadoM as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.generosoL = 1;
+      this.item14Error = this.setDuplicateError(this.tutorial.generosoM as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.ani_mosoL = 1;
+      this.item14Error = this.setDuplicateError(this.tutorial.ani_mosoM as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.persistenteL = 1;
+      this.item14Error = this.setDuplicateError(this.tutorial.persistenteM as number);
+    }
 
     return 1;
   }
@@ -1340,14 +1913,28 @@ arrInter  = {
     this.tutorial.sangrelivianaM =0;
 
     if  (value==0) 
+    {
       this.tutorial.adaptableM = 1;
-    if  (value==1) 
-      this.tutorial.disputadorM = 1;
-    if  (value==2) 
-      this.tutorial.indiferenteM = 1;
-    if  (value==3) 
-      this.tutorial.sangrelivianaM = 1;
+      this.item15Error = this.setDuplicateError(this.tutorial.adaptableL as number);
+    }
 
+    if  (value==1) 
+    {
+      this.tutorial.disputadorM = 1;
+      this.item15Error = this.setDuplicateError(this.tutorial.disputadorL as number);
+    }
+
+    if  (value==2) 
+    {
+      this.tutorial.indiferenteM = 1;
+      this.item15Error = this.setDuplicateError(this.tutorial.indiferenteL as number);
+    }
+
+    if  (value==3) 
+    {
+      this.tutorial.sangrelivianaM = 1;
+      this.item15Error = this.setDuplicateError(this.tutorial.sangrelivianaL as number);
+    }
     return 1;
   }
 
@@ -1359,13 +1946,28 @@ arrInter  = {
     this.tutorial.sangrelivianaL =0;
 
     if  (value==0) 
+    {
       this.tutorial.adaptableL = 1;
+      this.item15Error = this.setDuplicateError(this.tutorial.adaptableM as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.disputadorL = 1;
+      this.item15Error = this.setDuplicateError(this.tutorial.disputadorM as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.indiferenteL = 1;
+      this.item15Error = this.setDuplicateError(this.tutorial.indiferenteM as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.sangrelivianaL = 1;
+      this.item15Error = this.setDuplicateError(this.tutorial.sangrelivianaM as number);
+    }
 
     return 1;
   }
@@ -1379,13 +1981,28 @@ arrInter  = {
     this.tutorial.buencompaneroM =0;
 
     if  (value==0) 
+    {
       this.tutorial.cohibidoM = 1;
+      this.item16Error = this.setDuplicateError(this.tutorial.cohibidoL as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.exactoM = 1;
+      this.item16Error = this.setDuplicateError(this.tutorial.exactoL as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.francoM = 1;
+      this.item16Error = this.setDuplicateError(this.tutorial.francoL as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.buencompaneroM = 1;
+      this.item16Error = this.setDuplicateError(this.tutorial.buencompaneroL as number);
+    }
 
     return 1;
   }
@@ -1399,13 +2016,28 @@ arrInter  = {
     this.tutorial.buencompaneroL =0;
 
     if  (value==0) 
+    {
       this.tutorial.cohibidoL = 1;
+      this.item16Error = this.setDuplicateError(this.tutorial.cohibidoM as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.exactoL = 1;
+      this.item16Error = this.setDuplicateError(this.tutorial.exactoM as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.francoL = 1;
+      this.item16Error = this.setDuplicateError(this.tutorial.francoM as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.buencompaneroL = 1;
+      this.item16Error = this.setDuplicateError(this.tutorial.buencompaneroM as number);
+    }
 
     return 1;
   }
@@ -1418,13 +2050,28 @@ arrInter  = {
     this.tutorial.encantadorM =0;
 
     if  (value==0) 
+    {
       this.tutorial.docilM = 1;
+      this.item17Error = this.setDuplicateError(this.tutorial.docilL as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.atrevidoM = 1;
+      this.item17Error = this.setDuplicateError(this.tutorial.atrevidoL as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.lealM = 1;
+      this.item17Error = this.setDuplicateError(this.tutorial.lealL as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.encantadorM = 1;
+      this.item17Error = this.setDuplicateError(this.tutorial.encantadorL as number);
+    }
 
     return 1;
   }
@@ -1437,13 +2084,28 @@ arrInter  = {
     this.tutorial.encantadorL =0;
 
     if  (value==0) 
+    {
       this.tutorial.docilL = 1;
+      this.item17Error = this.setDuplicateError(this.tutorial.docilM as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.atrevidoL = 1;
+      this.item17Error = this.setDuplicateError(this.tutorial.atrevidoM as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.lealL = 1;
+      this.item17Error = this.setDuplicateError(this.tutorial.lealM as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.encantadorL = 1;
+      this.item17Error = this.setDuplicateError(this.tutorial.encantadorM as number);
+    }
 
     return 1;
   }
@@ -1456,13 +2118,28 @@ arrInter  = {
     this.tutorial.armoniosoM =0;
 
     if  (value==0) 
+    {
       this.tutorial.competitivoM = 1;
+      this.item18Error = this.setDuplicateError(this.tutorial.competitivoL as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.alegreM = 1;
+      this.item18Error = this.setDuplicateError(this.tutorial.alegreL as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.consideradoM = 1;
+      this.item18Error = this.setDuplicateError(this.tutorial.consideradoL as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.armoniosoM = 1;
+      this.item18Error = this.setDuplicateError(this.tutorial.armoniosoL as number);
+    }
 
     return 1;
   }
@@ -1476,13 +2153,28 @@ arrInter  = {
     this.tutorial.armoniosoL =0;
 
     if  (value==0) 
+    {
       this.tutorial.competitivoL = 1;
+      this.item18Error = this.setDuplicateError(this.tutorial.competitivoM as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.alegreL = 1;
+      this.item18Error = this.setDuplicateError(this.tutorial.alegreM as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.consideradoL = 1;
+      this.item18Error = this.setDuplicateError(this.tutorial.consideradoM as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.armoniosoL = 1;
+      this.item18Error = this.setDuplicateError(this.tutorial.armoniosoM as number);
+    }
 
     return 1;
   }
@@ -1495,13 +2187,28 @@ arrInter  = {
     this.tutorial.mesuradohablarM =0;
 
     if  (value==0) 
+    {
       this.tutorial.amigueroM = 1;
+      this.item19Error = this.setDuplicateError(this.tutorial.amigueroL as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.pacienteM = 1;
+      this.item19Error = this.setDuplicateError(this.tutorial.pacienteL as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.confianzamismoM = 1;
+      this.item19Error = this.setDuplicateError(this.tutorial.confianzamismoL as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.mesuradohablarM = 1;
+      this.item19Error = this.setDuplicateError(this.tutorial.mesuradohablarL as number);
+    }
 
     return 1;
   }
@@ -1514,13 +2221,28 @@ arrInter  = {
     this.tutorial.mesuradohablarL =0;
 
     if  (value==0) 
+    {
       this.tutorial.amigueroL = 1;
+      this.item19Error = this.setDuplicateError(this.tutorial.amigueroM as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.pacienteL = 1;
+      this.item19Error = this.setDuplicateError(this.tutorial.pacienteM as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.confianzamismoL = 1;
+      this.item19Error = this.setDuplicateError(this.tutorial.confianzamismoM as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.mesuradohablarL = 1;
+      this.item19Error = this.setDuplicateError(this.tutorial.mesuradohablarM as number);
+    }
 
     return 1;
   }
@@ -1534,13 +2256,28 @@ arrInter  = {
     this.tutorial.satisfechoM =0;
 
     if  (value==0) 
+    {
       this.tutorial.diplomaticoM = 1;
+      this.item20Error = this.setDuplicateError(this.tutorial.diplomaticoL as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.audazM = 1;
+      this.item20Error = this.setDuplicateError(this.tutorial.audazL as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.refinadoM = 1;
+      this.item20Error = this.setDuplicateError(this.tutorial.refinadoL as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.satisfechoM = 1;
+      this.item20Error = this.setDuplicateError(this.tutorial.satisfechoL as number);
+    }
 
     return 1;
   }
@@ -1554,13 +2291,28 @@ arrInter  = {
     this.tutorial.satisfechoL =0;
 
     if  (value==0) 
+    {
       this.tutorial.diplomaticoL = 1;
+      this.item20Error = this.setDuplicateError(this.tutorial.diplomaticoM as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.audazL = 1;
+      this.item20Error = this.setDuplicateError(this.tutorial.audazM as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.refinadoL = 1;
+      this.item20Error = this.setDuplicateError(this.tutorial.refinadoM as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.satisfechoL = 1;
+      this.item20Error = this.setDuplicateError(this.tutorial.satisfechoM as number);
+    }
 
     return 1;
   }
@@ -1574,13 +2326,28 @@ arrInter  = {
     this.tutorial.entusiastaM =0;
 
     if  (value==0) 
+    {
       this.tutorial.dispuestoM = 1;
+      this.item21Error = this.setDuplicateError(this.tutorial.dispuestoL as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.deseosoM = 1;
+      this.item21Error = this.setDuplicateError(this.tutorial.deseosoL as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.consecuenteM = 1;
+      this.item21Error = this.setDuplicateError(this.tutorial.consecuenteL as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.entusiastaM = 1;
+      this.item21Error = this.setDuplicateError(this.tutorial.entusiastaL as number);
+    }
 
     return 1;
   }
@@ -1594,13 +2361,28 @@ arrInter  = {
     this.tutorial.entusiastaL =0;
 
     if  (value==0) 
+    {
       this.tutorial.dispuestoL = 1;
+      this.item21Error = this.setDuplicateError(this.tutorial.dispuestoM as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.deseosoL = 1;
+      this.item21Error = this.setDuplicateError(this.tutorial.deseosoM as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.consecuenteL = 1;
+      this.item21Error = this.setDuplicateError(this.tutorial.consecuenteM as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.entusiastaL = 1;
+      this.item21Error = this.setDuplicateError(this.tutorial.entusiastaM as number);
+    }
 
     return 1;
   }
@@ -1613,13 +2395,28 @@ arrInter  = {
     this.tutorial.caracterfirmeM =0;
 
     if  (value==0) 
+    {
       this.tutorial.admirableM = 1;
+      this.item22Error = this.setDuplicateError(this.tutorial.admirableL as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.bondadosoM = 1;
+      this.item22Error = this.setDuplicateError(this.tutorial.bondadosoL as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.resignadoM = 1;
+      this.item22Error = this.setDuplicateError(this.tutorial.resignadoL as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.caracterfirmeM = 1;
+      this.item22Error = this.setDuplicateError(this.tutorial.caracterfirmeL as number);
+    }
 
     return 1;
   }
@@ -1633,13 +2430,28 @@ arrInter  = {
     this.tutorial.caracterfirmeL =0;
 
     if  (value==0) 
+    {
       this.tutorial.admirableL = 1;
+      this.item22Error = this.setDuplicateError(this.tutorial.admirableM as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.bondadosoL = 1;
+      this.item22Error = this.setDuplicateError(this.tutorial.bondadosoM as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.resignadoL = 1;
+      this.item22Error = this.setDuplicateError(this.tutorial.resignadoM as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.caracterfirmeL = 1;
+      this.item22Error = this.setDuplicateError(this.tutorial.caracterfirmeM as number);
+    }
 
     return 1;
   }
@@ -1652,13 +2464,28 @@ arrInter  = {
     this.tutorial.positivoM =0;
 
     if  (value==0) 
+    {
       this.tutorial.conformeM = 1;
+      this.item23Error = this.setDuplicateError(this.tutorial.conformeL as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.confiableM = 1;
+      this.item23Error = this.setDuplicateError(this.tutorial.confiableL as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.pacificoM = 1;
+      this.item23Error = this.setDuplicateError(this.tutorial.pacificoL as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.positivoM = 1;
+      this.item23Error = this.setDuplicateError(this.tutorial.positivoL as number);
+    }
 
     return 1;
   }
@@ -1671,13 +2498,28 @@ arrInter  = {
     this.tutorial.positivoL =0;
 
     if  (value==0) 
+    {
       this.tutorial.conformeL = 1;
+      this.item23Error = this.setDuplicateError(this.tutorial.conformeM as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.confiableL = 1;
+      this.item23Error = this.setDuplicateError(this.tutorial.confiableM as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.pacificoL = 1;
+      this.item23Error = this.setDuplicateError(this.tutorial.pacificoM as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.positivoL = 1;
+      this.item23Error = this.setDuplicateError(this.tutorial.positivoM as number);
+    }
 
     return 1;
   }
@@ -1691,13 +2533,28 @@ arrInter  = {
     this.tutorial.devotoM =0;
 
     if  (value==0) 
+    {
       this.tutorial.inquietoM = 1;
+      this.item24Error = this.setDuplicateError(this.tutorial.inquietoL as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.popularM = 1;
+      this.item24Error = this.setDuplicateError(this.tutorial.popularL as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.buenvecinoM = 1;
+      this.item24Error = this.setDuplicateError(this.tutorial.buenvecinoL as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.devotoM = 1;
+      this.item24Error = this.setDuplicateError(this.tutorial.devotoL as number);
+    }
 
     return 1;
   }
@@ -1712,13 +2569,28 @@ arrInter  = {
     this.tutorial.devotoL =0;
 
     if  (value==0) 
+    {
       this.tutorial.inquietoL = 1;
+      this.item24Error = this.setDuplicateError(this.tutorial.inquietoM as number);
+    }
+
     if  (value==1) 
+    {
       this.tutorial.popularL = 1;
+      this.item24Error = this.setDuplicateError(this.tutorial.popularM as number);
+    }
+
     if  (value==2) 
+    {
       this.tutorial.buenvecinoL = 1;
+      this.item24Error = this.setDuplicateError(this.tutorial.buenvecinoM as number);
+    }
+
     if  (value==3) 
+    {
       this.tutorial.devotoL = 1;
+      this.item24Error = this.setDuplicateError(this.tutorial.devotoM as number);
+    }
 
     return 1;
   }

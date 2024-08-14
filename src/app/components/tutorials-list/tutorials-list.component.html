@@ -11,6 +11,12 @@
         name="programaInteres"
         (change)="retrieveTutorialsByProgram()"
       >
+      <option value="LIS2024">LIC ING DE SOFTWARE 2024</option>
+      <option value="LC2024">LIC CONTADURIA 2024</option>
+      <option value="LAE2024">LIC ADMINISTRACION 2024</option>
+      <option value="LGE2024">LIC GESTION Y DIRECCION DE NEGOCIOS 2024</option>
+      <option value="LTIO2024">LIC TEC DE INFORMACION ORG 2024</option>
+      <option value="LPOL2024">LIC CIENCIAS POLITICAS Y GESTION PUB. 2024</option>
       <option value="MEIT2024">MEIT 2024</option>
       
       </select>
@@ -24,7 +30,8 @@
         [class.active]="i == currentIndex"
         (click)="setActiveTutorial(tutorial, i)"
       >
-       {{i+1}}  {{tutorial.appPaterno}}-{{tutorial.appMaterno}}, {{tutorial.nombre}}
+       {{i+1}}  {{tutorial.appPaterno}}-{{tutorial.appMaterno}}, {{tutorial.nombre}} :   {{ tutorial.Result }} /
+       {{tutorial.message}} 
       </li>
     </ul>
   </div>

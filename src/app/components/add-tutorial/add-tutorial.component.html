@@ -178,6 +178,8 @@ R2 <br>
         [(ngModel)]="tutorial.appPaterno"
         name="description"
       />
+      <span style="color: red"> <b>{{ this.itemApPaternoError }}</b></span>
+      
     </div>
     <div class="form-group">
       <label for="description">Apellido Materno</label>
@@ -188,6 +190,8 @@ R2 <br>
         [(ngModel)]="tutorial.appMaterno"
         name="description"
       />
+      <span style="color: red"> <b>{{ this.itemApMaternoError }}</b></span>
+
     </div>
 
     <div class="form-group">
@@ -199,11 +203,13 @@ R2 <br>
         [(ngModel)]="tutorial.nombre"
         name="description"
       />
+      <span style="color: red"> <b>{{ this.itemNombreError }}</b></span>
+
     </div>
 
 
     <div class="form-group">
-      <label for="description">Folio</label>
+      <label for="description">Matricula</label>
       <input
         class="form-control"
         id="facebook"
@@ -211,10 +217,13 @@ R2 <br>
         [(ngModel)]="tutorial.facebook"
         name="facebook"
       />
+
+      <span style="color: red"> <b>{{ this.itemMatriculaError }}</b></span>
+
     </div>
     
     <div class="form-group">
-      <label for="description">Puesto </label>
+      <label for="description">Carrera </label>
       <select
         class="form-control"
         id="programaInteres"
@@ -222,9 +231,17 @@ R2 <br>
         [(ngModel)]="tutorial.programaInteres"
         name="programaInteres"
       >
+      <option value="LIS2024">LIC ING DE SOFTWARE 2024</option>
+      <option value="LC2024">LIC CONTADURIA 2024</option>
+      <option value="LAE2024">LIC ADMINISTRACION 2024</option>
+      <option value="LGE2024">LIC GESTION Y DIRECCION DE NEGOCIOS 2024</option>
+      <option value="LTIO2024">LIC TEC DE INFORMACION ORG 2024</option>
+      <option value="LPOL2024">LIC CIENCIAS POLITICAS Y GESTION PUB. 2024</option>
       <option value="MEIT2024">Ingreso a MEIT 2024</option>
       
       </select>
+      <span style="color: red"> <b>{{ this.itemCarreraError }}</b></span>
+
     </div>
     
     <h5>
@@ -328,9 +345,12 @@ R2 <br>
           value="3"
           name="l1"
         />
+        </td>
+        <span style="color: red"> <b>{{ this.item1Error }}</b></span>
+
       </tr>
 
-    
+      
     </table>
       
 
@@ -431,7 +451,9 @@ R2 <br>
           value="3"
           name="l2"
         />
-      </tr>
+      </td>
+      <span style="color: red"> <b>{{ this.item2Error }}</b></span>
+    </tr>
 
     
     </table>
@@ -534,7 +556,9 @@ R2 <br>
           value="3"
           name="l3"
         />
-      </tr>
+      </td>
+      <span style="color: red"> <b>{{ this.item3Error }}</b></span>
+    </tr>
 
     
     </table>
@@ -637,7 +661,9 @@ R2 <br>
           value="3"
           name="l4"
         />
-      </tr>
+      </td>
+      <span style="color: red"> <b>{{ this.item4Error }}</b></span>
+    </tr>
 
     
     </table>
@@ -742,6 +768,9 @@ R2 <br>
           value="3"
           name="l5"
         />
+      </td>
+      <span style="color: red"> <b>{{ this.item5Error }}</b></span>
+  
       </tr>
 
     
@@ -845,6 +874,9 @@ R2 <br>
           value="3"
           name="l6"
         />
+      </td>
+      <span style="color: red"> <b>{{ this.item6Error }}</b></span>
+  
       </tr>
 
     
@@ -948,6 +980,9 @@ R2 <br>
           value="3"
           name="l7"
         />
+      </td>
+      <span style="color: red"> <b>{{ this.item7Error }}</b></span>
+  
       </tr>
 
     
@@ -1051,6 +1086,9 @@ R2 <br>
           value="3"
           name="l8"
         />
+      </td>
+      <span style="color: red"> <b>{{ this.item8Error }}</b></span>
+  
       </tr>
 
     
@@ -1152,6 +1190,9 @@ R2 <br>
           value="3"
           name="l9"
         />
+      </td>
+      <span style="color: red"> <b>{{ this.item9Error }}</b></span>
+  
       </tr>
 
     
@@ -1255,6 +1296,9 @@ R2 <br>
           value="3"
           name="l10"
         />
+      </td>
+      <span style="color: red"> <b>{{ this.item10Error }}</b></span>
+  
       </tr>
 
     
@@ -1359,6 +1403,9 @@ R2 <br>
           value="3"
           name="l11"
         />
+      </td>
+      <span style="color: red"> <b>{{ this.item11Error }}</b></span>
+  
       </tr>
 
     
@@ -1463,6 +1510,9 @@ R2 <br>
           value="3"
           name="l12"
         />
+      </td>
+      <span style="color: red"> <b>{{ this.item12Error }}</b></span>
+  
       </tr>
 
     
@@ -1564,6 +1614,9 @@ R2 <br>
         value="3"
         name="l13"
       />
+    </td>
+    <span style="color: red"> <b>{{ this.item13Error }}</b></span>
+
     </tr>
 
   
@@ -1667,6 +1720,9 @@ R2 <br>
         value="3"
         name="l14"
       />
+    </td>
+    <span style="color: red"> <b>{{ this.item14Error }}</b></span>
+
     </tr>
 
   
@@ -1771,6 +1827,9 @@ R2 <br>
         value="3"
         name="l15"
       />
+    </td>
+    <span style="color: red"> <b>{{ this.item15Error }}</b></span>
+
     </tr>
 
   
@@ -1875,6 +1934,9 @@ R2 <br>
         value="3"
         name="l16"
       />
+    </td>
+    <span style="color: red"> <b>{{ this.item16Error }}</b></span>
+
     </tr>
 
   
@@ -1975,6 +2037,9 @@ R2 <br>
         value="3"
         name="l17"
       />
+    </td>
+    <span style="color: red"> <b>{{ this.item17Error }}</b></span>
+
     </tr>
 
   
@@ -2078,6 +2143,9 @@ R2 <br>
         value="3"
         name="l18"
       />
+    </td>
+    <span style="color: red"> <b>{{ this.item18Error }}</b></span>
+
     </tr>
 
   
@@ -2182,6 +2250,9 @@ R2 <br>
         value="3"
         name="l19"
       />
+    </td>
+    <span style="color: red"> <b>{{ this.item19Error }}</b></span>
+
     </tr>
 
   
@@ -2286,6 +2357,9 @@ R2 <br>
         value="3"
         name="l20"
       />
+    </td>
+    <span style="color: red"> <b>{{ this.item20Error }}</b></span>
+
     </tr>
 
   
@@ -2390,6 +2464,9 @@ R2 <br>
         value="3"
         name="l21"
       />
+    </td>
+    <span style="color: red"> <b>{{ this.item21Error }}</b></span>
+
     </tr>
 
   
@@ -2493,6 +2570,9 @@ R2 <br>
         value="3"
         name="l22"
       />
+    </td>
+    <span style="color: red"> <b>{{ this.item22Error }}</b></span>
+
     </tr>
 
   
@@ -2597,6 +2677,9 @@ R2 <br>
         value="3"
         name="l23"
       />
+    </td>
+    <span style="color: red"> <b>{{ this.item23Error }}</b></span>
+
     </tr>
 
   
@@ -2701,6 +2784,9 @@ R2 <br>
         value="3"
         name="l24"
       />
+    </td>
+    <span style="color: red"> <b>{{ this.item24Error }}</b></span>
+
     </tr>
 
   
@@ -2712,6 +2798,8 @@ R2 <br>
 
     
     <button (click)="saveTutorial()" class="btn btn-success">Guardar Registro</button>
+    <span style="color: red"> <b>{{ this.missingValuesError }}</b></span>
+
   </div>
 
   <div *ngIf="submitted">
