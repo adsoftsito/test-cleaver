@@ -647,12 +647,283 @@ greenClass: string|string[]|Set<string>|{ [klass: string]: any; }|null|undefined
       this.tutorial.cordialL as number, 
       this.tutorial.moderadoM as number, 
       this.tutorial.moderadoL as number, 
-);
+    );
     if (item4 < 2) 
       this.item4Error = "Grupo 4 requerido ...";
+
+    
+    var item5 = this.validateItem(
+      this.tutorial.agresivoM as number, 
+      this.tutorial.agresivoL as number, 
+      this.tutorial.almafiestaM as number, 
+      this.tutorial.almafiestaL as number, 
+      this.tutorial.comodinoM as number, 
+      this.tutorial.comodinoL as number, 
+      this.tutorial.temerosoM as number, 
+      this.tutorial.temerosoL as number, 
+    );
+    if (item5 < 2) 
+      this.item5Error = "Grupo 5 requerido ...";
+
+    var item6 = this.validateItem(
+      this.tutorial.confiadoM as number, 
+      this.tutorial.confiadoM as number, 
+      this.tutorial.simpatizadorM as number, 
+      this.tutorial.simpatizadorL as number, 
+      this.tutorial.toleranteM as number, 
+      this.tutorial.toleranteL as number, 
+      this.tutorial.afirmativoM as number, 
+      this.tutorial.afirmativoL as number, 
+    );
+    if (item6 < 2) 
+      this.item6Error = "Grupo 6 requerido ...";
+
+    var item7 = this.validateItem(
+      this.tutorial.respetuosoM as number, 
+      this.tutorial.respetuosoL as number, 
+      this.tutorial.emprendedorM as number, 
+      this.tutorial.emprendedorL as number, 
+      this.tutorial.optimistaM as number, 
+      this.tutorial.optimistaL as number, 
+      this.tutorial.servicialM as number, 
+      this.tutorial.servicialL as number, 
+    );
+    if (item7 < 2) 
+      this.item7Error = "Grupo 7 requerido ...";
+
+    var item8 = this.validateItem(
+      this.tutorial.indulgenteM as number, 
+      this.tutorial.indulgenteL as number, 
+      this.tutorial.estetaM as number, 
+      this.tutorial.estetaL as number, 
+      this.tutorial.vigorosoM as number, 
+      this.tutorial.vigorosoL as number, 
+      this.tutorial.sociableM as number, 
+      this.tutorial.sociableL as number, 
+    );
+    if (item8 < 2) 
+      this.item8Error = "Grupo 8 requerido ...";
+
+
+    var item9 = this.validateItem(
+      this.tutorial.agradableM as number, 
+      this.tutorial.agradableL as number, 
+      this.tutorial.temerosodiosM as number, 
+      this.tutorial.temerosodiosL as number, 
+      this.tutorial.tenazM as number, 
+      this.tutorial.tenazL as number, 
+      this.tutorial.atractivoM as number, 
+      this.tutorial.atractivoL as number, 
+    );
+    if (item9 < 2) 
+      this.item9Error = "Grupo 9 requerido ...";
+
+
+    var item10 = this.validateItem(
+      this.tutorial.ecuanimeM as number, 
+      this.tutorial.ecuanimeL as number, 
+      this.tutorial.precisoM as number, 
+      this.tutorial.precisoL as number, 
+      this.tutorial.nerviosoM as number, 
+      this.tutorial.nerviosoL as number, 
+      this.tutorial.jovialM as number, 
+      this.tutorial.jovialL as number, 
+    );
+    if (item10 < 2) 
+      this.item10Error = "Grupo 10 requerido ...";
+
+    var item11 = this.validateItem(
+      this.tutorial.valienteM as number, 
+      this.tutorial.valienteL as number, 
+      this.tutorial.inspiradorM as number, 
+      this.tutorial.inspiradorL as number, 
+      this.tutorial.sumisoM as number, 
+      this.tutorial.sumisoL as number, 
+      this.tutorial.timidoM as number, 
+      this.tutorial.timidoL as number, 
+    );
+    if (item11 < 2) 
+      this.item11Error = "Grupo 11 requerido ...";
+
+    var item12 = this.validateItem(
+      this.tutorial.parlanchinM as number, 
+      this.tutorial.parlanchinL as number, 
+      this.tutorial.controladoM as number, 
+      this.tutorial.controladoL as number, 
+      this.tutorial.convencionalM as number, 
+      this.tutorial.convencionalL as number, 
+      this.tutorial.decisivoM as number, 
+      this.tutorial.decisivoL as number, 
+    );
+    if (item12 < 2) 
+      this.item12Error = "Grupo 12 requerido ...";
+
+    var item13 = this.validateItem(
+      this.tutorial.cautelosoM as number, 
+      this.tutorial.cautelosoL as number, 
+      this.tutorial.determinadoM as number, 
+      this.tutorial.determinadoL as number, 
+      this.tutorial.convincenteM as number, 
+      this.tutorial.convincenteL as number, 
+      this.tutorial.bonachonM as number, 
+      this.tutorial.bonachonL as number, 
+    );
+    if (item13 < 2) 
+      this.item13Error = "Grupo 13 requerido ...";
+
+    var item14 = this.validateItem(
+      this.tutorial.disciplinadoM as number, 
+      this.tutorial.disciplinadoL as number, 
+      this.tutorial.generosoM as number, 
+      this.tutorial.generosoL as number, 
+      this.tutorial.ani_mosoM as number, 
+      this.tutorial.ani_mosoL as number, 
+      this.tutorial.persistenteM as number, 
+      this.tutorial.persistenteL as number, 
+    );
+    if (item14 < 2) 
+      this.item14Error = "Grupo 14 requerido ...";
+
+    var item15 = this.validateItem(
+      this.tutorial.adaptableM as number, 
+      this.tutorial.adaptableL as number, 
+      this.tutorial.disputadorM as number, 
+      this.tutorial.disputadorL as number, 
+      this.tutorial.indiferenteM as number, 
+      this.tutorial.indiferenteL as number, 
+      this.tutorial.sangrelivianaM as number, 
+      this.tutorial.sangrelivianaL as number, 
+    );
+    if (item15 < 2) 
+      this.item15Error = "Grupo 15 requerido ...";
+
+    var item16 = this.validateItem(
+      this.tutorial.cohibidoM as number, 
+      this.tutorial.cohibidoL as number, 
+      this.tutorial.exactoM as number, 
+      this.tutorial.exactoL as number, 
+      this.tutorial.francoM as number, 
+      this.tutorial.francoL as number, 
+      this.tutorial.buencompaneroM as number, 
+      this.tutorial.buencompaneroL as number, 
+    );
+    if (item16 < 2) 
+      this.item16Error = "Grupo 16 requerido ...";
+
+    var item17 = this.validateItem(
+      this.tutorial.docilM as number, 
+      this.tutorial.docilL as number, 
+      this.tutorial.atrevidoM as number, 
+      this.tutorial.atrevidoL as number, 
+      this.tutorial.lealM as number, 
+      this.tutorial.lealL as number, 
+      this.tutorial.encantadorM as number, 
+      this.tutorial.encantadorL as number, 
+    );
+    if (item17 < 2) 
+      this.item17Error = "Grupo 17 requerido ...";
+
+    var item18 = this.validateItem(
+      this.tutorial.competitivoM as number, 
+      this.tutorial.competitivoL as number, 
+      this.tutorial.alegreM as number, 
+      this.tutorial.alegreL as number, 
+      this.tutorial.consideradoM as number, 
+      this.tutorial.consideradoL as number, 
+      this.tutorial.armoniosoM as number, 
+      this.tutorial.armoniosoL as number, 
+    );
+    if (item18 < 2) 
+      this.item18Error = "Grupo 18 requerido ...";
+
+    var item19 = this.validateItem(
+      this.tutorial.amigueroM as number, 
+      this.tutorial.amigueroL as number, 
+      this.tutorial.pacienteM as number, 
+      this.tutorial.pacienteL as number, 
+      this.tutorial.confianzamismoM as number, 
+      this.tutorial.confianzamismoL as number, 
+      this.tutorial.mesuradohablarM as number, 
+      this.tutorial.mesuradohablarL as number, 
+    );
+    if (item19 < 2) 
+      this.item19Error = "Grupo 19 requerido ...";
+
+    var item20 = this.validateItem(
+      this.tutorial.diplomaticoM as number, 
+      this.tutorial.diplomaticoL as number, 
+      this.tutorial.audazM as number, 
+      this.tutorial.audazL as number, 
+      this.tutorial.refinadoM as number, 
+      this.tutorial.refinadoL as number, 
+      this.tutorial.satisfechoM as number, 
+      this.tutorial.satisfechoL as number, 
+    );
+    if (item20 < 2) 
+      this.item20Error = "Grupo 20 requerido ...";
+
+    var item21 = this.validateItem(
+      this.tutorial.dispuestoM as number, 
+      this.tutorial.dispuestoL as number, 
+      this.tutorial.deseosoM as number, 
+      this.tutorial.deseosoL as number, 
+      this.tutorial.consecuenteM as number, 
+      this.tutorial.consecuenteL as number, 
+      this.tutorial.entusiastaM as number, 
+      this.tutorial.entusiastaL as number, 
+    );
+    if (item21 < 2) 
+      this.item21Error = "Grupo 21 requerido ...";
+
+    var item22 = this.validateItem(
+      this.tutorial.admirableM as number, 
+      this.tutorial.admirableL as number, 
+      this.tutorial.bondadosoM as number, 
+      this.tutorial.bondadosoL as number, 
+      this.tutorial.resignadoM as number, 
+      this.tutorial.resignadoL as number, 
+      this.tutorial.caracterfirmeM as number, 
+      this.tutorial.caracterfirmeL as number, 
+    );
+    if (item22 < 2) 
+      this.item22Error = "Grupo 22 requerido ...";
+
+    var item23 = this.validateItem(
+      this.tutorial.conformeM as number, 
+      this.tutorial.conformeL as number, 
+      this.tutorial.confiableM as number, 
+      this.tutorial.confiableL as number, 
+      this.tutorial.pacificoM as number, 
+      this.tutorial.pacificoL as number, 
+      this.tutorial.positivoM as number, 
+      this.tutorial.positivoL as number, 
+    );
+    if (item23 < 2) 
+      this.item23Error = "Grupo 23 requerido ...";
+
+    var item24 = this.validateItem(
+      this.tutorial.inquietoM as number, 
+      this.tutorial.inquietoL as number, 
+      this.tutorial.popularM as number, 
+      this.tutorial.popularL as number, 
+      this.tutorial.buenvecinoM as number, 
+      this.tutorial.buenvecinoL as number, 
+      this.tutorial.devotoM as number, 
+      this.tutorial.devotoL as number, 
+    );
+    if (item24 < 2) 
+      this.item24Error = "Grupo 24 requerido ...";
+
     
 
-    sumGroups = item1 + item2 + item3 + item4;
+    sumGroups = itemApPaterno + itemApMaterno + itemNombre + itemMatricula +  itemCarrera +
+    item1 + item2 + item3 + item4 +
+    item5 + item6 + item7 + item8 +
+    item9 + item10 + item11 + item12 +
+    item13 + item14 + item15 + item16 +
+    item17 + item18 + item19 + item20 +
+    item21 + item22 + item23 + item24; 
+    console.log("total " + sumGroups);
     return sumGroups;
   }
 
@@ -661,9 +932,12 @@ greenClass: string|string[]|Set<string>|{ [klass: string]: any; }|null|undefined
     var sumGroups = this.validateGroups();
     //console.log(sumGroups);
 
-    if (sumGroups < 4) {
+    if (sumGroups < 53) {
       this.missingValuesError = "LLenar campos requeridos" 
     }
+    else
+    this.missingValuesError = "ok" 
+
        /*
     this.tutorialService.create(this.tutorial).then(() => {
       console.log('Created new item successfully!');
