@@ -667,7 +667,7 @@ greenClass: string|string[]|Set<string>|{ [klass: string]: any; }|null|undefined
 
     var item6 = this.validateItem(
       this.tutorial.confiadoM as number, 
-      this.tutorial.confiadoM as number, 
+      this.tutorial.confiadoL as number, 
       this.tutorial.simpatizadorM as number, 
       this.tutorial.simpatizadorL as number, 
       this.tutorial.toleranteM as number, 
@@ -935,15 +935,16 @@ greenClass: string|string[]|Set<string>|{ [klass: string]: any; }|null|undefined
     if (sumGroups < 53) {
       this.missingValuesError = "LLenar campos requeridos" 
     }
-    else
-    this.missingValuesError = "ok" 
+    else {
+      this.calculateTest();
+      this.missingValuesError = "guardando ..." 
 
-       /*
-    this.tutorialService.create(this.tutorial).then(() => {
-      console.log('Created new item successfully!');
-      this.submitted = true;
-    });
-    */
+       
+      this.tutorialService.create(this.tutorial).then(() => {
+         console.log('Created new item successfully!');
+        this.submitted = true;
+      });
+    }
   }
 
   calculateTest() {
