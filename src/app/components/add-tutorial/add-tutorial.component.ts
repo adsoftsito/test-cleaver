@@ -16,6 +16,8 @@ export class AddTutorialComponent {
   itemNombreError = '';
   itemMatriculaError = '';
   itemCarreraError = '';
+  itemPeriodoError = '';
+  itemFacultadError = '';
 
 
   item1Error = '';
@@ -570,11 +572,13 @@ greenClass: string|string[]|Set<string>|{ [klass: string]: any; }|null|undefined
     return textFill;
   }
   constructor(private tutorialService: TutorialService) { 
-    this.tutorial.appPaterno = "-";
-    this.tutorial.appMaterno = "-";
-    this.tutorial.nombre = "-";
-    this.tutorial.facebook = "-";
-    this.tutorial.programaInteres = "-";
+    this.tutorial.appPaterno = "";
+    this.tutorial.appMaterno = "";
+    this.tutorial.nombre = "";
+    this.tutorial.facebook = "";
+    this.tutorial.programaInteres = "";
+    this.tutorial.periodo = "2025";
+    this.tutorial.facultad = "fnt";
 
   }
 
@@ -601,6 +605,15 @@ greenClass: string|string[]|Set<string>|{ [klass: string]: any; }|null|undefined
     if (itemCarrera == 0) this.itemCarreraError = "Carrera requerida."
             else this.itemCarreraError = ""
     
+    var itemPeriodo = this.validateText(this.tutorial.periodo as string);
+            if (itemPeriodo == 0) this.itemCarreraError = "Carrera requerida."
+                    else this.itemCarreraError = ""
+
+    var itemFacultad = this.validateText(this.tutorial.facultad as string);
+                    if (itemFacultad == 0) this.itemCarreraError = "Carrera requerida."
+                            else this.itemCarreraError = ""
+                        
+
     var item1 = this.validateItem(this.tutorial.persuasivoM as number, 
                                   this.tutorial.persuasivoL as number, 
                                   this.tutorial.gentilM as number, 

@@ -232,6 +232,7 @@ export class Tutorial {
   //email?: string;
   facebook?: string;
   facultad?: string = 'fnt';
+  periodo?: string = "2025";
 
 
   FinalT?: Number = 0;

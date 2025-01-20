@@ -165,7 +165,7 @@ R2 <br>
 -->
   <div *ngIf="!submitted">
 
-    <h5>Ingresar apellido paterno, materno, nombre completo, el numero de folio y puesto
+    <h5>Ingresar apellido paterno, materno, nombre, el numero de folio y puesto
 
     </h5>
     
@@ -195,7 +195,7 @@ R2 <br>
     </div>
 
     <div class="form-group">
-      <label for="description">Nombre completo</label>
+      <label for="description">Nombre</label>
       <input
         class="form-control"
         id="description"
@@ -223,6 +223,23 @@ R2 <br>
     </div>
     
     <div class="form-group">
+      <label for="description">Facultad </label>
+      <select
+        class="form-control"
+        id="facultad"
+        required
+        [(ngModel)]="tutorial.facultad"
+        name="facultad"
+      >
+      <option value="fnt">Facultad de  Negocios y Teconologias, USBI Ixtac</option>
+      <option value="fi">Facultad de Ingenieria, USBI Ixtac</option>
+      
+      </select>
+      <span style="color: red"> <b>{{ this.itemFacultadError }}</b></span>
+
+    </div>
+
+    <div class="form-group">
       <label for="description">Carrera </label>
       <select
         class="form-control"
@@ -231,19 +248,39 @@ R2 <br>
         [(ngModel)]="tutorial.programaInteres"
         name="programaInteres"
       >
-      <option value="LIS2024">LIC ING DE SOFTWARE 2024</option>
-      <option value="LC2024">LIC CONTADURIA 2024</option>
-      <option value="LAE2024">LIC ADMINISTRACION 2024</option>
-      <option value="LGE2024">LIC GESTION Y DIRECCION DE NEGOCIOS 2024</option>
-      <option value="LTIO2024">LIC TEC DE INFORMACION ORG 2024</option>
-      <option value="LPOL2024">LIC CIENCIAS POLITICAS Y GESTION PUB. 2024</option>
-      <option value="MEIT2024">Ingreso a MEIT 2024</option>
+      <option value="LIS">LIC ING DE SOFTWARE</option>
+      <option value="LC">LIC CONTADURIA</option>
+      <option value="LAE">LIC ADMINISTRACION</option>
+      <option value="LGE">LIC GESTION Y DIRECCION DE NEGOCIOS</option>
+      <option value="LTIO">LIC TEC DE INFORMACION ORG</option>
+      <option value="LPOL">LIC CIENCIAS POLITICAS Y GESTION PUB.</option>
+      <option value="MDEIT">INGRESO A MDEIT </option>
       
       </select>
       <span style="color: red"> <b>{{ this.itemCarreraError }}</b></span>
 
     </div>
-    
+  
+    <div class="form-group">
+      <label for="description">Periodo </label>
+      <select
+        class="form-control"
+        id="periodo"
+        required
+        [(ngModel)]="tutorial.periodo"
+        name="periodo"
+      >
+      <option value="2024">2024</option>
+      <option value="2025">2025</option>
+      <option value="2026">2026</option>
+      <option value="2027">2027</option>
+
+      </select>
+      <span style="color: red"> <b>{{ this.itemPeriodoError }}</b></span>
+
+    </div>
+  
+
     <h5>
       Encontraran cuatro palabras agrupadas, seleccionar de esas 4, únicamente 2, 
       la que "Mas" se parezca a uds. y la que "Menos" se parezca.
